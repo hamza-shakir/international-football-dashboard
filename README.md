@@ -32,7 +32,7 @@ We understand that this fluctuaton can be due to teams adpoting different styles
 - **How many teams have won the respective tournaments?**
 
 ![most_decorated_countries](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/6e61f5b6-2008-4a77-ad66-03e75bc8f7b3)
-![most_decorated_countries_matplotlib](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/cc9b70d9-40fb-41bf-ab4f-6c5bce1aa957)
+![most_decorated_countries_matplotlib](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/76445c94-867d-4b0c-a3c1-117c757dd85f)
 
 **Brazil**, **Germany** and **Italy** have dominated both the International and the Continental tournaments, whilst countries such as **Egypt**, **Cameroon**, **Ghana**, **Ivory Coast**, **Nigeria**, **Spain**, **Argentina** and **Uruguay** have enjoyed quite a lot of Continental success.
 
@@ -40,13 +40,13 @@ Now that we have visualized the winners from the top 5 major international tourn
 
 **How many of these champions were hosts when they won the respective tournaments?**
 
-![trophies_won_as_hosts](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/a88b3dd9-69e0-433e-82ee-aadda474c737)
+![trophies_won_as_hosts](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/46ce2fa4-5560-48ab-9e45-abc47ad0c271)
 
 There have been a fair few victors who were hosts as well but there seem to be quite a lot that weren't necessaily hosting tournaments which they won, with _Copa América_ being an exception. Let's get a more specific visualisation as to how often do we see _Host Nations_ come out on top.
 
 **What is the percentage of teams that have won the tournament whilst hosting it?**
 
-![percentage_of_tournaments_won_by_hosts](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/6d858494-4b32-4d05-aa52-9628ce137681)
+![percentage_of_tournaments_won_by_hosts](https://github.com/Hamza-149/visualizing-data-in-football/assets/69048367/3551ea1d-8052-4d5d-acd1-38e54e83fc8d)
 
 Here we can see that **FIFA World Cup**, **African Cup of Nations** and **UEFA Euro** have a decent (but not so encouraging) win percentage whilst being the Home Team whereas in **Copa América** the Home Team seems to have a higher success rate.
 
