@@ -4,7 +4,10 @@ import plotly.graph_objs as go
 
 
 
-def trophy_count_hbarchart(tournament_name, rs, toggle):
+def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
+    # determining the year range between which the user wants to view the data
+    rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
+
     # Create a single plot with horizontal bar subplots
     fig_trophies = go.Figure()
     fig_host_trophies = go.Figure()
@@ -227,7 +230,10 @@ def trophy_count_hbarchart(tournament_name, rs, toggle):
 
 
 
-def goals_count_line_plot(tournament_name, rs):
+def goals_count_line_plot(tournament_name, rs, start_year, end_year):
+    # determining the year range between which the user wants to view the data
+    rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
+
      # Create a single plot
     fig_goals = go.Figure()
 

@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.graph_objs as go
 import datetime
 
 from data_processing import processing_data
@@ -30,7 +28,7 @@ rs = processing_data(results_df, shootouts_df)
 
 #------------------------------------------------------------------------------------------------
 
-
+# creating 2 columns for a dropdown list and a slider
 row1 = st.columns(2)
 
 # Tournament options and default selection
@@ -38,20 +36,18 @@ tournaments = ["All", "FIFA World Cup", "Copa América", "AFC Asian Cup", "Afric
 selected_tournament = row1[0].selectbox("Choose Tournament", tournaments, index=1)  # Default: World Cup
 
 # Range of years to view data from
-# selected_range = row1[1].slider("Select Year", 1916, datetime.date.today().year, datetime.date.today().year)
 start_year, end_year = row1[1].select_slider(
     'Select Year',
     options=range(1916, datetime.date.today().year + 1),
     value=(1916, datetime.date.today().year)
 )
 
-
 # cretaing tabs to view different charts
 tab1, tab2 = st.tabs(["Trophies won", "Goals scored"])
 
 # displaying trophy count chart
 toggle = tab1.toggle('Trophies won as hosts')
-tab1.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, toggle))
+tab1.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle))
 
 # displaying goal count chart
-tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs))
+tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year))
