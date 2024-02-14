@@ -148,8 +148,18 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
 
             # Update layout settings
             fig_host_trophies.update_layout(barmode='overlay', yaxis_title='Number of Titles')
+            fig_host_trophies.update_layout(dragmode=False)
 
-            return fig_host_trophies
+            # calling function to display (pie chart) comparison between trophies by hosts and neutrals
+            all_tournaments_champions_df_sorted = pd.concat([world_cup_champions_df_sorted,
+                                                             copa_america_champions_df_sorted,
+                                                             afcon_champions_df_sorted,
+                                                             euros_champions_df_sorted,
+                                                             asian_cup_champions_df_sorted])
+            
+            fig_pie_chart = trophies_won_hosting_pie_chart(all_tournaments_champions_df_sorted)
+
+            return fig_host_trophies, fig_pie_chart
 
 
     else:
@@ -215,8 +225,12 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
 
             # Update layout settings
             fig_host_trophies.update_layout(barmode='overlay', yaxis_title='Number of Titles')
+            fig_host_trophies.update_layout(dragmode=False)
 
-            return fig_host_trophies
+            # calling function to display (pie chart) comparison between trophies by hosts and neutrals
+            fig_pie_chart = trophies_won_hosting_pie_chart(tournament_champions_df_sorted)
+
+            return fig_host_trophies, fig_pie_chart
 
 
     # Update layout settings
@@ -225,8 +239,23 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
                                )
         
     fig_trophies.update_layout(dragmode=False)
-    # st.plotly_chart(fig_trophies)
     return fig_trophies
+
+
+
+def trophies_won_hosting_pie_chart(rs):
+    # calcualting the the sum values of the no. of times hosts and neutrals have won tournaments
+    hosts_count = rs['Trophies won as host'].sum()
+    neutral_count = rs['Trophies won overall'].sum() - rs['Trophies won as host'].sum()
+
+    # creating values and labels arrays for pie chart
+    values = [hosts_count, neutral_count]
+    labels = ['Host Champions', 'Neutral Champions']
+
+    fig_pie_chart = go.Figure(data=[go.Pie(labels=labels, values=values)])
+
+    return fig_pie_chart
+
 
 
 

@@ -47,7 +47,15 @@ tab1, tab2 = st.tabs(["Trophies won", "Goals scored"])
 
 # displaying trophy count chart
 toggle = tab1.toggle('Trophies won as hosts')
-tab1.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle))
+
+if toggle:
+    fig_trophies, fig_pie_chart = trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle)
+    tab1.plotly_chart(fig_trophies)
+    tab1.plotly_chart(fig_pie_chart)
+
+else:
+    tab1.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle))
+
 
 # displaying goal count chart
 tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year))
