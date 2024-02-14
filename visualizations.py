@@ -147,8 +147,10 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
             fig_host_trophies.add_trace(go.Bar(y=asian_cup_champions_df_sorted['Winner'], x=asian_cup_champions_df_sorted['Trophies won as host'], orientation='h', name='Trophies won as host - AFC Asian Cup'))
 
             # Update layout settings
-            fig_host_trophies.update_layout(barmode='overlay', yaxis_title='Number of Titles')
-            fig_host_trophies.update_layout(dragmode=False)
+            fig_host_trophies.update_layout(barmode='overlay', 
+                                            xaxis_title='Number of Trophies Won',
+                                            legend=dict(xanchor="right", yanchor="bottom"),
+                                            dragmode=False)
 
             # calling function to display (pie chart) comparison between trophies by hosts and neutrals
             all_tournaments_champions_df_sorted = pd.concat([world_cup_champions_df_sorted,
@@ -224,8 +226,10 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
             fig_host_trophies.add_trace(go.Bar(y=tournament_champions_df_sorted['Winner'], x=tournament_champions_df_sorted['Trophies won as host'], orientation='h', name='Trophies won as host'))
 
             # Update layout settings
-            fig_host_trophies.update_layout(barmode='overlay', yaxis_title='Number of Titles')
-            fig_host_trophies.update_layout(dragmode=False)
+            fig_host_trophies.update_layout(barmode='overlay', 
+                                            xaxis_title='Number of Trophies Won',
+                                            legend=dict(xanchor="right", yanchor="bottom", x=0.95, y=0.3),
+                                            dragmode=False)
 
             # calling function to display (pie chart) comparison between trophies by hosts and neutrals
             fig_pie_chart = trophies_won_hosting_pie_chart(tournament_champions_df_sorted)
@@ -234,11 +238,11 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
 
 
     # Update layout settings
-    fig_trophies.update_layout(xaxis_title='No. of Trophies Won',
+    fig_trophies.update_layout(xaxis_title='Number of Trophies Won',
                                barmode='overlay',
-                               )
+                               legend=dict(xanchor="right", yanchor="top", x=0.95, y=0.3),
+                               dragmode=False)
         
-    fig_trophies.update_layout(dragmode=False)
     return fig_trophies
 
 
@@ -252,7 +256,13 @@ def trophies_won_hosting_pie_chart(rs):
     values = [hosts_count, neutral_count]
     labels = ['Host Champions', 'Neutral Champions']
 
-    fig_pie_chart = go.Figure(data=[go.Pie(labels=labels, values=values)])
+    # Specify the index of the slice you want to explode (0 for first, 1 for second)
+    exploded_slice_index = 0
+
+    fig_pie_chart = go.Figure(data=[go.Pie(labels=labels, 
+                                           values=values,
+                                           # Apply pull to the desired slice index
+                                           pull=[0, 0.1] if exploded_slice_index == 0 else [0.1, 0])])
 
     return fig_pie_chart
 
@@ -310,7 +320,8 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
     # Update layout settings
     fig_goals.update_layout(xaxis_title='Year', 
                       yaxis_title='Goals Scored',
-                      margin={"r": 20, "t": 20, "b": 20}
-                      )
+                      margin={"r": 20, "t": 20, "b": 20},
+                      dragmode=False,
+                      legend=dict(xanchor="left", yanchor="top", x=0.01, y=0.95))
 
     return fig_goals
