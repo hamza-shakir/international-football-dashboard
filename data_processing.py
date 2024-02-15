@@ -57,9 +57,12 @@ def processing_data(results_df, shootouts_df):
 
 
     # Replacing NULL values wherever necessary
-    rs['Winning Team'].fillna('Draw', inplace = True)
-    rs['Shootout'].fillna(False, inplace = True)
-    rs['Losing Team'].fillna('Draw', inplace = True)
+    # rs['Winning Team'].fillna('Draw', inplace = True)
+    # rs['Shootout'].fillna(False, inplace = True)
+    # rs['Losing Team'].fillna('Draw', inplace = True)
+    rs['Winning Team'] = rs['Winning Team'].fillna('Draw')
+    rs['Shootout'] = rs['Shootout'].fillna(False)
+    rs['Losing Team'] = rs['Losing Team'].fillna('Draw')
 
 
     '''
