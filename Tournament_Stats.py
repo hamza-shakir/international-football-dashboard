@@ -15,6 +15,9 @@ st.set_page_config(page_title = "International Football Dashboard",
 # creating a large heading
 st.title("International Football Dashboard 🌍⚽📊")
 
+# explaining a jist of this page in the sidebar
+st.sidebar.markdown("See how teams have fared over the years across different competitions")
+
 
 # reading the CSV files
 results_df = pd.read_csv('datasets/results.csv')
