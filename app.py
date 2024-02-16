@@ -20,8 +20,8 @@ with st.sidebar:
 
     st.write("# About")
     st.markdown("""Following up on the [*Visualising Data in Football project*](https://github.com/Hamza-149/visualizing-data-in-football), 
-             I built an interactive user-friendly dashboard which will allow users to freely interact with the analysis I've carried out so far, 
-             making it easy to interpret the visualisations and charts without having to go through all the code.""")
+                I built an interactive user-friendly dashboard which will allow users to freely interact and explore visualizations 
+                and stats of international football tournaments over the years.""")
     
     st.write("# Tournaments Analyzed")
     st.markdown("""
