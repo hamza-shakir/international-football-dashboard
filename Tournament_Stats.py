@@ -16,7 +16,29 @@ st.set_page_config(page_title = "International Football Dashboard",
 st.title("International Football Dashboard 🌍⚽📊")
 
 # explaining a jist of this page in the sidebar
-st.sidebar.markdown("See how teams have fared over the years across different competitions")
+with st.sidebar:
+
+    st.write("# About")
+    st.markdown("""Following up on the [*Visualising Data in Football project*](https://github.com/Hamza-149/visualizing-data-in-football), 
+             I built an interactive user-friendly dashboard which will allow users to freely interact with the analysis I've carried out so far, 
+             making it easy to interpret the visualisations and charts without having to go through all the code.""")
+    
+    st.write("# Tournaments Analyzed")
+    st.markdown("""
+                * FIFA World Cup
+                * UEFA Euro
+                * Copa América
+                * African Cup of Nations
+                * AFC Asian cup
+                """)
+
+    st.write("# References")
+    st.markdown("""
+                * The [*dataset*](https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017) 
+                I used for the analysis was obtained from [*Kaggle*](https://www.kaggle.com/).
+                * To clean some of the data that I extracted from kaggle, I cross-referenced it with the data available on Wikipedia.
+                * [*Jupyter notebook*](https://github.com/Hamza-149/visualizing-data-in-football) where I carried out all the cleaning and analysis.
+                """)
 
 
 # reading the CSV files
@@ -48,7 +70,7 @@ start_year, end_year = row1[1].select_slider("Select Year",
                                              help = "Select range of years between which you would like to view the stats")
 
 # creating tabs to view different charts
-tab1, tab2 = st.tabs(["Trophies won", "Goals scored"])
+tab1, tab2, tab3, tab4 = st.tabs(["Trophies won", "Goals scored", "Team Stats", "Team Comparison"])
 
 # displaying trophy count chart
 toggle = tab1.toggle('Trophies won as hosts')
@@ -64,3 +86,7 @@ else:
 
 # displaying goal count chart
 tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+
+
+
+
