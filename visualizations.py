@@ -149,7 +149,8 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
             # Update layout settings
             fig_host_trophies.update_layout(barmode='overlay', 
                                             xaxis_title='Number of Trophies Won',
-                                            legend=dict(xanchor="right", yanchor="bottom"),
+                                            legend=dict(xanchor="right", yanchor="bottom", x=0.95, y=0.3),
+                                            margin={"t":50, "b": 10},
                                             dragmode=False)
 
             # calling function to display (pie chart) comparison between trophies by hosts and neutrals
@@ -229,6 +230,7 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
             fig_host_trophies.update_layout(barmode='overlay', 
                                             xaxis_title='Number of Trophies Won',
                                             legend=dict(xanchor="right", yanchor="bottom", x=0.95, y=0.3),
+                                            margin={"t":50, "b": 10},
                                             dragmode=False)
 
             # calling function to display (pie chart) comparison between trophies by hosts and neutrals
@@ -240,7 +242,8 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
     # Update layout settings
     fig_trophies.update_layout(xaxis_title='Number of Trophies Won',
                                barmode='overlay',
-                               legend=dict(xanchor="right", yanchor="top", x=0.95, y=0.3),
+                               legend=dict(xanchor="right", yanchor="top", x=0.95, y=0.65),
+                               margin={"t":50, "b": 10},
                                dragmode=False)
         
     return fig_trophies
@@ -320,8 +323,8 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
     # Update layout settings
     fig_goals.update_layout(xaxis_title='Year', 
                       yaxis_title='Goals Scored',
-                      margin={"r": 20, "t": 20, "b": 20},
+                      margin={"t": 50, "b": 20},
                       dragmode=False,
-                      legend=dict(xanchor="left", yanchor="top", x=0.01, y=0.95))
+                      legend=dict(xanchor="left", yanchor="top", x=0.03, y=0.95))
 
     return fig_goals
