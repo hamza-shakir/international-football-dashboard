@@ -1,12 +1,19 @@
 import pandas as pd
 
-def processing_data(results_df, shootouts_df):
+# processing results and penalty shootouts data
+def results_data(results_df, shootouts_df):
 
     '''
     Let us add a new column in the shootouts dataframe which will come in handy post-merging. 
     This column will tell us if the match was extended for a penalty shootout or not.
     '''
     shootouts_df['shootout'] = True
+
+    '''
+    The 'first_shooter' column contains a lot of incomplete and inconsistent data,
+    hence we wshall drop it to avoid confusion later on in our analysis.
+    '''
+    shootouts_df = shootouts_df.drop(columns = ['first_shooter'])
 
     '''
     Now let us merge both the dataframes to combine shooutout results. 
@@ -25,17 +32,17 @@ def processing_data(results_df, shootouts_df):
  
     # Let us rename the columns for consistency
     rs.rename(columns = {'date':'Date',
-                     'home_team':'Home Team',
-                     'away_team':'Away Team',
-                     'home_score':'Home Score',
-                     'away_score':'Away Score',
-                     'tournament':'Tournament',
-                     'city':'City',
-                     'country':'Country',
-                     'neutral':'Neutral Venue',
-                     'winner':'Winning Team',
-                     'shootout':'Shootout'
-                     }, inplace = True)
+                        'home_team':'Home Team',
+                        'away_team':'Away Team',
+                        'home_score':'Home Score',
+                        'away_score':'Away Score',
+                        'tournament':'Tournament',
+                        'city':'City',
+                        'country':'Country',
+                        'neutral':'Neutral Venue',
+                        'winner':'Winning Team',
+                        'shootout':'Shootout'
+                        }, inplace = True)
     
 
     # changing date format from 'object' to 'datetime'
@@ -82,3 +89,33 @@ def processing_data(results_df, shootouts_df):
     rs.insert(6, 'Shootout', shootout)
 
     return rs
+
+
+# processing goalscorers' data
+def goalscorers_data(goalscorers_df, rs):
+
+    # renaming columns to maintain consistency
+    goalscorers_df.rename(columns = {'date':'Date',
+                        'home_team':'Home Team',
+                        'away_team':'Away Team',
+                        'team':'Team',
+                        'scorer':'Scorer'
+                        }, inplace = True)
+    
+    # changing date format from 'object' to 'datetime'
+    goalscorers_df['Date'] = pd.to_datetime(goalscorers_df['Date'])
+
+    # adding a new column 'year' by splitting the 'date' column
+    goalscorers_df['Year'] = pd.DatetimeIndex(goalscorers_df['Date']).year
+
+    # Let us reposition the 'Year' column for better visual understanding
+    year = goalscorers_df.pop('Year')
+    goalscorers_df.insert(0, 'Year', year)
+
+    # merging goalscorers' data and results data
+    gs = pd.merge(goalscorers_df, rs, how = 'outer', on = ['Year', 'Date', 'Home Team', 'Away Team'])
+
+    # dropping columns that are irrelevant to this dataframe
+    gs = gs.drop(columns = ['Shootout'])
+
+    return gs

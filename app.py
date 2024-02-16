@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 
-from data_processing import processing_data
+from data_processing import results_data, goalscorers_data
 from visualizations import trophy_count_hbarchart, goals_count_line_plot
 
 #setting page configurations
@@ -41,21 +41,28 @@ with st.sidebar:
                 """)
 
 
+#-----------------------------------data processing--------------------------------------------------------------
+    
+
 # reading the CSV files
 results_df = pd.read_csv('datasets/results.csv')
 shootouts_df = pd.read_csv('datasets/shootouts.csv')
 goalscorers_df = pd.read_csv('datasets/goalscorers.csv')
 
-# cleaning and preparing our data
-rs = processing_data(results_df, shootouts_df)
+# cleaning and preparing our results data
+rs = results_data(results_df, shootouts_df)
+
+# cleaning and preparing our goalscorers data
+gs = goalscorers_data(goalscorers_df, rs)
 
 
-#------------------------------------------------------------------------------------------------
+#---------------------------------------dispalying content---------------------------------------------------------
 
-# creating 2 columns for a dropdown list and a slider
+
+# creating 2 columns for a tournament dropdown list and a slider with a range of years
 row1 = st.columns([1, 3], gap='medium')
 
-# Tournament options and default selection
+# dropdown list for selecting tournament of choice
 tournaments = ["All", "FIFA World Cup", "Copa América", "AFC Asian Cup", "African Cup of Nations", "UEFA Euro"]
 selected_tournament = row1[0].selectbox("Choose Tournament", 
                                         options = tournaments,
@@ -63,13 +70,13 @@ selected_tournament = row1[0].selectbox("Choose Tournament",
                                         help = "Select a tournament to view its stats",
                                         index = 1) 
 
-# Range of years to view data from
+# slider with a range of years to view data from
 start_year, end_year = row1[1].select_slider("Select Year",
                                              options = range(1916, datetime.date.today().year + 1),
                                              value = (1916, datetime.date.today().year),
                                              help = "Select range of years between which you would like to view the stats")
 
-# creating tabs to view different charts
+# creating tabs to view different charts and stats
 tab1, tab2, tab3, tab4 = st.tabs(["Trophies won", "Goals scored", "Team Stats", "Team Comparison"])
 
 # displaying trophy count chart
