@@ -13,17 +13,17 @@ st.set_page_config(page_title = "International Football Dashboard",
                    menu_items = {'About': "View the source code for this dashboard by clicking on the below github repo link: https://github.com/Hamza-149/international-football-dashboard"})
 
 # creating a large heading
-st.title("International Football Dashboard 🌍⚽📊")
+st.title(":rainbow[International Football Dashboard] 🌍⚽📊")
 
 # explaining a jist of this page in the sidebar
 with st.sidebar:
 
-    st.write("# About")
+    st.write("# :red[About]")
     st.markdown("""Following up on the [*Visualising Data in Football project*](https://github.com/Hamza-149/visualizing-data-in-football), 
                 I built an interactive user-friendly dashboard which will allow users to freely interact and explore visualizations 
                 and stats of international football tournaments over the years.""")
     
-    st.write("# Tournaments Analyzed")
+    st.write("# :red[Tournaments Analyzed]")
     st.markdown("""
                 * FIFA World Cup
                 * UEFA Euro
@@ -32,7 +32,7 @@ with st.sidebar:
                 * AFC Asian cup
                 """)
 
-    st.write("# References")
+    st.write("# :red[References]")
     st.markdown("""
                 * The [*dataset*](https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017) 
                 I used for the analysis was obtained from [*Kaggle*](https://www.kaggle.com/).
