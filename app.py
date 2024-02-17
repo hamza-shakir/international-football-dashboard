@@ -60,7 +60,26 @@ gs = goalscorers_data(goalscorers_df, rs)
 
 
 # creating 2 columns for a tournament dropdown list and a slider with a range of years
-row1 = st.columns([1, 3], gap='medium')
+fixed_header = st.container()
+row1 = fixed_header.columns([1, 3], gap='medium')
+
+# creating sticky header for the dropdown list and a slider
+fixed_header.write("""<div class='fixed-header'/>""", unsafe_allow_html=True)
+
+# Custom CSS for the sticky header
+st.markdown(
+    """
+<style>
+    div[data-testid="stVerticalBlock"] div:has(div.fixed-header) {
+        position: sticky;
+        top: 2.875rem;
+        background-color: #0E1117;
+        z-index: 999;
+    }
+</style>
+    """,
+    unsafe_allow_html=True
+)
 
 # dropdown list for selecting tournament of choice
 tournaments = ["All", "FIFA World Cup", "Copa América", "AFC Asian Cup", "African Cup of Nations", "UEFA Euro"]
