@@ -95,8 +95,11 @@ start_year, end_year = row1[1].select_slider("Select Year",
                                              value = (1916, datetime.date.today().year),
                                              help = "Select range of years between which you would like to view the stats")
 
+#---------------------------------------------------------------------------------------------------------------------------------------
+
 # creating tabs to view different charts and stats
 tab1, tab2, tab3, tab4 = st.tabs(["Trophies won", "Goals scored", "Team Stats", "Team Comparison"])
+
 
 # displaying trophy count chart
 toggle = tab1.toggle('Trophies won as hosts')
@@ -114,5 +117,9 @@ else:
 tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
 
 
+#
+tab3.write("Under development ⚙")
 
 
+#
+tab4.write("Under development ⚙")

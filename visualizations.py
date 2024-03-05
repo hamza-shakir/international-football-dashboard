@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objs as go
 
 
-
+# creates a bar chart to view the past champions of a given tournament
 def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
     # determining the year range between which the user wants to view the data
     rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
@@ -249,7 +249,7 @@ def trophy_count_hbarchart(tournament_name, rs, start_year, end_year, toggle):
     return fig_trophies
 
 
-
+# creates pie chart which to view the comparison between teams that were champions while hosting vs those who weren't hosting
 def trophies_won_hosting_pie_chart(rs):
     # calcualting the the sum values of the no. of times hosts and neutrals have won tournaments
     hosts_count = rs['Trophies won as host'].sum()
@@ -270,8 +270,7 @@ def trophies_won_hosting_pie_chart(rs):
     return fig_pie_chart
 
 
-
-
+# creates a line plot to view the goals scored in each tournament
 def goals_count_line_plot(tournament_name, rs, start_year, end_year):
     # determining the year range between which the user wants to view the data
     rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
@@ -328,3 +327,7 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
                       legend=dict(xanchor="left", yanchor="top", x=0.03, y=0.95))
 
     return fig_goals
+
+
+#
+
