@@ -118,8 +118,8 @@ tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end
 
 
 #
-tab3.write("Under development ⚙")
+tab3.write("## ⚙ *:orange[Under development]* ⚙")
 
 
 #
-tab4.write("Under development ⚙")
+tab4.write("## ⚙ *:orange[Under development]* ⚙")
