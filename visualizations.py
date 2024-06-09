@@ -323,11 +323,102 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
     fig_goals.update_layout(xaxis_title='Year', 
                       yaxis_title='Goals Scored',
                       margin={"t": 50, "b": 20},
+                      xaxis_showgrid=True,
+                      yaxis_showgrid=True,
                       dragmode=False,
                       legend=dict(xanchor="left", yanchor="top", x=0.03, y=0.95))
 
     return fig_goals
 
 
-#
+# retrieving stats for the "Tournament Stats" tab
+def tour_stats(tournament_name, rs, start_year, end_year, stat):
+    # determining the year range between which the user wants to view the data
+    rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
 
+    # creating dataframe for the tournament of choice
+    tournament = rs.loc[rs['Tournament'] == tournament_name]
+
+    # creating dataframes for finals of the respective tournaments
+    tournament_groupby = tournament.groupby('Year')
+    tournament_final = tournament_groupby.last()
+
+    # resolving certain faults in the Finals data of the 'Copa América'
+    if tournament_name == 'Copa América':
+        # resolving certain faults in the Finals data
+        indexNames = tournament_final[tournament_final['Winning Team'] == 'Draw'].index
+        tournament_final.drop(indexNames, inplace = True)
+
+
+    # Obtaining champion's name
+    if stat == "Defending Champion":
+        return tournament['Winning Team'].iloc[-1]
+
+
+    # Obtaining runner-up name
+    elif stat == "Runner-up":
+        return tournament['Losing Team'].iloc[-1]
+    
+
+    # Year in which the tournament was played in
+    elif stat == "tour_year":
+        return int(tournament['Year'].iloc[-1])
+    
+
+    # Obtaining Finals scoreline
+    elif stat == "Final Score":
+        if tournament['Winning Team'].iloc[-1] == tournament['Home Team'].iloc[-1]:
+            return str(int(tournament['Home Score'].iloc[-1])) + " - " + str(int(tournament['Away Score'].iloc[-1]))
+        else:
+            return str(int(tournament['Away Score'].iloc[-1])) + " - " + str(int(tournament['Home Score'].iloc[-1]))
+    
+
+    # Checking if Finals was decided on penalties
+    elif stat == "pens":
+        if tournament['Shootout'].iloc[-1] == True:
+            return "Won via Penalties"
+        else:
+            return None
+        
+
+    # Finals appearnace count
+    elif stat == "Final Appearances":
+        combined_teams = pd.concat([tournament_final['Winning Team'], tournament_final['Losing Team']], ignore_index=True)
+
+        # creating dataframes to identify the winners and how many times they have won the tournament
+        final_appearances = pd.DataFrame(combined_teams.value_counts())
+
+        # Resetting index
+        final_appearances.reset_index(drop=False, inplace=True)
+
+        # Renaming columns
+        final_appearances.rename(columns={'index': 'Country', 'count': 'Most Appearances in Finals'}, inplace=True)
+
+        # Sort dataframes by trophies won in descending order
+        final_appearances = final_appearances.sort_values(by='Most Appearances in Finals', ascending=False)
+
+        return final_appearances
+    
+
+    # Tournament appearance count
+    elif stat == "Tournament Appearances":
+        # Create a list of all teams
+        all_teams = pd.concat([tournament['Home Team'], tournament['Away Team']], ignore_index=True).unique()
+
+        # Initialize the new dataframe
+        team_years = {'Country': [], 'Number of Tournaments played in': []}
+
+        # Calculate the number of unique years each team played
+        for team in all_teams:
+            years_played = tournament[(tournament['Home Team'] == team) | (tournament['Away Team'] == team)]['Year'].nunique()
+            team_years['Country'].append(team)
+            team_years['Number of Tournaments played in'].append(years_played)
+
+        # Create the final dataframe
+        total_appearances = pd.DataFrame(team_years)
+
+        # Sort dataframes by trophies won in descending order
+        total_appearances = total_appearances.sort_values(by='Number of Tournaments played in', ascending=False).reset_index(drop=True)
+
+        return total_appearances
+        

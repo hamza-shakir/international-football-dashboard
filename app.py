@@ -3,14 +3,14 @@ import pandas as pd
 import datetime
 
 from data_processing import results_data, goalscorers_data
-from visualizations import trophy_count_hbarchart, goals_count_line_plot
+from visualizations import trophy_count_hbarchart, goals_count_line_plot, tour_stats
 
 #setting page configurations
 st.set_page_config(page_title = "International Football Dashboard",
                    page_icon = ":soccer:",
                    initial_sidebar_state = "auto",
                    layout = "wide",
-                   menu_items = {'About': "View the source code for this dashboard by clicking on the below github repo link: https://github.com/Hamza-149/international-football-dashboard"})
+                   menu_items = {'About': "View the source code for this dashboard by clicking on the below github repo link: https://github.com/hamza-shakir/international-football-dashboard"})
 
 # creating a large heading
 st.title(":rainbow[International Football Dashboard] 🌍⚽📊")
@@ -19,7 +19,7 @@ st.title(":rainbow[International Football Dashboard] 🌍⚽📊")
 with st.sidebar:
 
     st.write("# :red[About]")
-    st.markdown("""Following up on the [*Visualising Data in Football project*](https://github.com/Hamza-149/visualizing-data-in-football), 
+    st.markdown("""Following up on the [*Visualising Data in Football project*](https://github.com/hamza-shakir/visualizing-data-in-football), 
                 I built an interactive user-friendly dashboard which will allow users to freely interact and explore visualizations 
                 and stats of international football tournaments over the years.""")
     
@@ -37,7 +37,7 @@ with st.sidebar:
                 * The [*dataset*](https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017) 
                 I used for the analysis was obtained from [*Kaggle*](https://www.kaggle.com/).
                 * To clean some of the data that I extracted from kaggle, I cross-referenced it with the data available on Wikipedia.
-                * [*Jupyter notebook*](https://github.com/Hamza-149/visualizing-data-in-football) where I carried out all the cleaning and analysis.
+                * [*Jupyter notebook*](https://github.com/hamza-shakir/visualizing-data-in-football) where I carried out all the cleaning and analysis.
                 """)
 
 
@@ -82,7 +82,7 @@ st.markdown(
 )
 
 # dropdown list for selecting tournament of choice
-tournaments = ["All", "FIFA World Cup", "Copa América", "AFC Asian Cup", "African Cup of Nations", "UEFA Euro"]
+tournaments = ["FIFA World Cup", "Copa América", "AFC Asian Cup", "African Cup of Nations", "UEFA Euro"]
 selected_tournament = row1[0].selectbox("Choose Tournament", 
                                         options = tournaments,
                                         placeholder = "Choose Tournament",
@@ -98,28 +98,77 @@ start_year, end_year = row1[1].select_slider("Select Year",
 #---------------------------------------------------------------------------------------------------------------------------------------
 
 # creating tabs to view different charts and stats
-tab1, tab2, tab3, tab4 = st.tabs(["Trophies won", "Goals scored", "Team Stats", "Team Comparison"])
+tab1, tab2, tab3 = st.tabs(["Trophies Won", "Goals scored", "Tournament Stats"])
 
 
-# displaying trophy count chart
-toggle = tab1.toggle('Trophies won as hosts')
+with tab1:
+    # Trophies won as hosts toggle
+    toggle = st.toggle('Trophies won as hosts',
+                        help="View how many teams have made the most out of their home advantage")
 
-if toggle:
-    fig_trophies, fig_pie_chart = trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle)
-    tab1.plotly_chart(fig_trophies, use_container_width=True)
-    tab1.plotly_chart(fig_pie_chart, use_container_width=True)
-
-else:
-    tab1.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), use_container_width=True)
-
-
-# displaying goal count chart
-tab2.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
-
-
-#
-tab3.write("## ⚙ *:orange[Under development]* ⚙")
+    # Display trophies chart based on toggle state
+    if toggle:
+        fig_trophies, fig_pie_chart = trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle)
+        with st.container():
+            st.plotly_chart(fig_trophies, use_container_width=True)
+        with st.container():
+            st.plotly_chart(fig_pie_chart, use_container_width=True)
+    else:
+        with st.container():
+            st.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), use_container_width=True)
 
 
-#
-tab4.write("## ⚙ *:orange[Under development]* ⚙")
+with tab2:
+    # Goals count line plot
+    st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+
+
+with tab3:
+    # Displaying the score from the latest finals
+    col1_1, col1_2, col1_3 = st.columns(3)
+
+    # Define the CSS style to hide the delta arrow in st.metric
+    hide_arrow_style = """
+    <style>
+    [data-testid="stMetricDelta"] svg {
+    display: none;
+    }
+    </style>
+    """
+
+    # Inject the CSS style
+    st.markdown(hide_arrow_style, unsafe_allow_html=True)
+
+    with col1_1.container():
+        st.metric(label=":orange[Defending Champion]", 
+                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Defending Champion"), 
+                  delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
+                  delta_color="off")
+    
+    with col1_2.container():
+        st.metric(label="Final Score", 
+                    value=tour_stats(selected_tournament, rs, start_year, end_year, "Final Score"),
+                    delta=tour_stats(selected_tournament, rs, start_year, end_year, "pens"))
+    
+    with col1_3.container():
+        st.metric(label=":blue[Runner-up]", 
+                    value=tour_stats(selected_tournament, rs, start_year, end_year, "Runner-up"), 
+                    delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
+                    delta_color="off")
+    
+
+    # Displaying appearance stats
+    col2_1, col2_2 = st.columns(2)
+
+    with col2_1.container():
+        st.subheader("Most Appearances in " + selected_tournament + " Finals")
+        st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Final Appearances"),
+                     use_container_width=True,
+                     hide_index=True)
+
+    with col2_2.container():
+        st.subheader("Most Appearances in " + selected_tournament)
+        st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Tournament Appearances"),
+                     use_container_width=True,
+                     hide_index=True)
+
