@@ -87,7 +87,7 @@ selected_tournament = row1[0].selectbox("Choose Tournament",
                                         options = tournaments,
                                         placeholder = "Choose Tournament",
                                         help = "Select a tournament to view its stats",
-                                        index = 1) 
+                                        index = 0) 
 
 # slider with a range of years to view data from
 start_year, end_year = row1[1].select_slider("Select Year",
