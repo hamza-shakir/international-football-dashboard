@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import datetime
 
-from data_processing import results_data, goalscorers_data
-from visualizations import trophy_count_hbarchart, goals_count_line_plot, tour_stats
+from modules.data_processing import results_data, goalscorers_data
+from modules.visualizations import trophy_count_hbarchart, goals_count_line_plot, tour_stats
 
 #setting page configurations
 st.set_page_config(page_title = "International Football Dashboard",
@@ -125,7 +125,8 @@ with tab2:
 
 with tab3:
     # Displaying the score from the latest finals
-    col1_1, col1_2, col1_3 = st.columns(3)
+    col1_1, col1_2, col1_3 = st.columns(3, gap='medium')
+
 
     # Define the CSS style to hide the delta arrow in st.metric
     hide_arrow_style = """
@@ -139,26 +140,27 @@ with tab3:
     # Inject the CSS style
     st.markdown(hide_arrow_style, unsafe_allow_html=True)
 
-    with col1_1.container():
+
+    with col1_1.container(border=True):
         st.metric(label=":orange[Defending Champion]", 
                   value=tour_stats(selected_tournament, rs, start_year, end_year, "Defending Champion"), 
                   delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
                   delta_color="off")
     
-    with col1_2.container():
-        st.metric(label="Final Score", 
-                    value=tour_stats(selected_tournament, rs, start_year, end_year, "Final Score"),
-                    delta=tour_stats(selected_tournament, rs, start_year, end_year, "pens"))
+    with col1_2.container(border=True):
+        st.metric(label="Final Score",
+                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Final Score"),
+                  delta=tour_stats(selected_tournament, rs, start_year, end_year, "pens"))
     
-    with col1_3.container():
-        st.metric(label=":blue[Runner-up]", 
-                    value=tour_stats(selected_tournament, rs, start_year, end_year, "Runner-up"), 
-                    delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
-                    delta_color="off")
+    with col1_3.container(border=True):
+        st.metric(label=":blue[Runner-up]",
+                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Runner-up"),
+                  delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
+                  delta_color="off")
     
 
     # Displaying appearance stats
-    col2_1, col2_2 = st.columns(2)
+    col2_1, col2_2 = st.columns(2, gap='medium')
 
     with col2_1.container():
         st.subheader("Most Appearances in " + selected_tournament + " Finals")
