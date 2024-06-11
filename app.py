@@ -98,34 +98,47 @@ start_year, end_year = row1[1].select_slider("Select Year",
 #---------------------------------------------------------------------------------------------------------------------------------------
 
 # creating tabs to view different charts and stats
-tab1, tab2, tab3 = st.tabs(["Trophies Won", "Goals scored", "Tournament Stats"])
+tab1, tab2, tab3 = st.tabs(["Tournament Stats", "Goals Stats", "Penalty Stats"])
 
 
+# Tournament Stats
 with tab1:
+    # Tournament champions section
+    # st.subheader("Tale of Champions")
+    st.markdown("<h2 style='text-align: center;'>Tale of Champions</h2>", unsafe_allow_html=True)
+
     # Trophies won as hosts toggle
     toggle = st.toggle('Trophies won as hosts',
-                        help="View how many teams have made the most out of their home advantage")
+                       value=True,
+                       help="View how many teams have made the most out of their home advantage")
+    
+
+    # splitting the 2 charts into columns
+    col1_1, col1_2 = st.columns([3,2])
 
     # Display trophies chart based on toggle state
     if toggle:
         fig_trophies, fig_pie_chart = trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle)
-        with st.container():
+        with col1_1.container():
             st.plotly_chart(fig_trophies, use_container_width=True)
-        with st.container():
+
+        with col1_2.container():
             st.plotly_chart(fig_pie_chart, use_container_width=True)
     else:
-        with st.container():
+        with col1_1.container():
             st.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), use_container_width=True)
 
 
-with tab2:
-    # Goals count line plot
-    st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+    # visual divider between sections
+    st.divider() #-----------------------------------------------------------------------------------------------------------------------------
 
 
-with tab3:
+    # Latest tournament results section
+    # st.subheader("Latest Tournament Stats")
+    st.markdown("<h2 style='text-align: center;'>Latest Tournament Stats</h2>", unsafe_allow_html=True)
+
     # Displaying the score from the latest finals
-    col1_1, col1_2, col1_3 = st.columns(3, gap='medium')
+    col2_1, col2_2, col2_3 = st.columns(3, gap='medium')
 
 
     # Define the CSS style to hide the delta arrow in st.metric
@@ -141,36 +154,94 @@ with tab3:
     st.markdown(hide_arrow_style, unsafe_allow_html=True)
 
 
-    with col1_1.container(border=True):
+    with col2_1.container(border=True):
         st.metric(label=":orange[Defending Champion]", 
-                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Defending Champion"), 
+                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Champion"), 
                   delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
                   delta_color="off")
     
-    with col1_2.container(border=True):
+    with col2_2.container(border=True):
         st.metric(label="Final Score",
                   value=tour_stats(selected_tournament, rs, start_year, end_year, "Final Score"),
                   delta=tour_stats(selected_tournament, rs, start_year, end_year, "pens"))
     
-    with col1_3.container(border=True):
+    with col2_3.container(border=True):
         st.metric(label=":blue[Runner-up]",
                   value=tour_stats(selected_tournament, rs, start_year, end_year, "Runner-up"),
                   delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
                   delta_color="off")
     
 
-    # Displaying appearance stats
-    col2_1, col2_2 = st.columns(2, gap='medium')
+    # visual divider between sections
+    st.divider() #-----------------------------------------------------------------------------------------------------------------------------
 
-    with col2_1.container():
+
+    # Team Appearances section
+    # st.subheader("Team Appearances")
+    st.markdown("<h2 style='text-align: center;'>Team Appearances</h2>", unsafe_allow_html=True)
+
+    # Displaying appearance stats
+    col3_1, col3_2 = st.columns(2, gap='medium')
+
+    with col3_1.container():
         st.subheader("Most Appearances in " + selected_tournament + " Finals")
         st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Final Appearances"),
                      use_container_width=True,
                      hide_index=True)
 
-    with col2_2.container():
+    with col3_2.container():
         st.subheader("Most Appearances in " + selected_tournament)
         st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Tournament Appearances"),
                      use_container_width=True,
                      hide_index=True)
+
+
+
+
+
+# Goal Stats
+with tab2:
+    # Goal Trends section
+    # st.subheader("Goal Trends")
+    st.markdown("<h3 style='text-align: center;'>Goal Trends</h3>", unsafe_allow_html=True)
+
+    # Goals count line plot
+    st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+    
+
+    # visual divider between sections
+    st.divider() #-----------------------------------------------------------------------------------------------------------------------------
+
+
+    # Team Goal Stats section
+    # st.subheader("Team Goal Stats")
+    st.markdown("<h3 style='text-align: center;'>Team Goal Stats</h3>", unsafe_allow_html=True)
+
+    col1_1, col1_2 = st.columns(2, gap='medium')
+
+    with col1_1.container():
+        # Teams who have scored the most goals of all time (table)
+        st.dataframe(use_container_width=True,
+                     hide_index=True)
+
+    # with col1_2.container():
+    #     # 
+    #     st.dataframe(use_container_width=True,
+    #                  hide_index=True)
+
+
+    # # visual divider between sections
+    # st.divider() #-----------------------------------------------------------------------------------------------------------------------------
+
+
+    # # Player Goal Stats section
+    # # st.subheader("Player Goal Stats")
+    # st.markdown("<h3 style='text-align: center;'>Player Goal Stats</h3>", unsafe_allow_html=True)
+
+    # col2_1, col2_2 = st.columns(2, gap='medium')
+
+
+# Penalty Stats
+# with tab3:
+    
 

@@ -351,7 +351,7 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
 
 
     # Obtaining champion's name
-    if stat == "Defending Champion":
+    if stat == "Champion":
         return tournament['Winning Team'].iloc[-1]
 
 
