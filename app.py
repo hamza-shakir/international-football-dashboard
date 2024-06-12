@@ -19,9 +19,13 @@ st.title(":rainbow[International Football Dashboard] 🌍⚽📊")
 with st.sidebar:
 
     st.write("# :red[About]")
-    st.markdown("""Following up on the [*Visualising Data in Football project*](https://github.com/hamza-shakir/visualizing-data-in-football), 
-                I built an interactive user-friendly dashboard which will allow users to freely interact and explore visualizations 
-                and stats of international football tournaments over the years.""")
+    st.markdown("""
+                → Analyzed data from the past 100 years of major international football tournaments to assess the impact of home advantage using Python and various data viz libraries.
+
+                → Developed a live interactive dashboard for users to explore insights and interact with additional football data.
+
+                → Provided comprehensive findings on the host nation's performances and facilitated user-driven exploration of miscellaneous football statistics.
+                """)
     
     st.write("# :red[Tournaments Analyzed]")
     st.markdown("""
@@ -95,17 +99,18 @@ start_year, end_year = row1[1].select_slider("Select Year",
                                              value = (1916, datetime.date.today().year),
                                              help = "Select range of years between which you would like to view the stats")
 
-#---------------------------------------------------------------------------------------------------------------------------------------
-
 # creating tabs to view different charts and stats
-tab1, tab2, tab3 = st.tabs(["Tournament Stats", "Goals Stats", "Penalty Stats"])
+tab1, tab2, tab3 = fixed_header.tabs(["Tournament Stats", "Goals Stats", "Penalty Shootout Stats"])
+
+
+#---------------------------------------------------------------------------------------------------------------------------------------
 
 
 # Tournament Stats
 with tab1:
     # Tournament champions section
     # st.subheader("Tale of Champions")
-    st.markdown("<h2 style='text-align: center;'>Tale of Champions</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Tale of Champions</h3>", unsafe_allow_html=True)
 
     # Trophies won as hosts toggle
     toggle = st.toggle('Trophies won as hosts',
@@ -135,7 +140,7 @@ with tab1:
 
     # Latest tournament results section
     # st.subheader("Latest Tournament Stats")
-    st.markdown("<h2 style='text-align: center;'>Latest Tournament Stats</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Latest Tournament Stats</h3>", unsafe_allow_html=True)
 
     # Displaying the score from the latest finals
     col2_1, col2_2, col2_3 = st.columns(3, gap='medium')
@@ -155,7 +160,7 @@ with tab1:
 
 
     with col2_1.container(border=True):
-        st.metric(label=":orange[Defending Champion]", 
+        st.metric(label=":orange[Champion]", 
                   value=tour_stats(selected_tournament, rs, start_year, end_year, "Champion"), 
                   delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
                   delta_color="off")
@@ -178,19 +183,20 @@ with tab1:
 
     # Team Appearances section
     # st.subheader("Team Appearances")
-    st.markdown("<h2 style='text-align: center;'>Team Appearances</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Team Appearances</h3>", unsafe_allow_html=True)
+    st.write(" ")
 
     # Displaying appearance stats
     col3_1, col3_2 = st.columns(2, gap='medium')
 
     with col3_1.container():
-        st.subheader("Most Appearances in " + selected_tournament + " Finals")
+        st.markdown("##### Most Appearances in " + selected_tournament + " Finals")
         st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Final Appearances"),
                      use_container_width=True,
                      hide_index=True)
 
     with col3_2.container():
-        st.subheader("Most Appearances in " + selected_tournament)
+        st.markdown("##### Most Appearances in " + selected_tournament)
         st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Tournament Appearances"),
                      use_container_width=True,
                      hide_index=True)
@@ -203,7 +209,7 @@ with tab1:
 with tab2:
     # Goal Trends section
     # st.subheader("Goal Trends")
-    st.markdown("<h3 style='text-align: center;'>Goal Trends</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>{} Goal Trends</h3>".format(selected_tournament), unsafe_allow_html=True)
 
     # Goals count line plot
     st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
@@ -216,32 +222,64 @@ with tab2:
     # Team Goal Stats section
     # st.subheader("Team Goal Stats")
     st.markdown("<h3 style='text-align: center;'>Team Goal Stats</h3>", unsafe_allow_html=True)
+    st.write(" ")
 
     col1_1, col1_2 = st.columns(2, gap='medium')
 
     with col1_1.container():
         # Teams who have scored the most goals of all time (table)
+        st.dataframe(tour_stats(selected_tournament, gs, start_year, end_year, "Teams with Most Goals Scored"),
+                     use_container_width=True,
+                     hide_index=True)
+
+    with col1_2.container():
+        # 
         st.dataframe(use_container_width=True,
                      hide_index=True)
 
-    # with col1_2.container():
-    #     # 
-    #     st.dataframe(use_container_width=True,
-    #                  hide_index=True)
+
+    # visual divider between sections
+    st.divider() #-----------------------------------------------------------------------------------------------------------------------------
 
 
-    # # visual divider between sections
-    # st.divider() #-----------------------------------------------------------------------------------------------------------------------------
+    # Player Goal Stats section
+    # st.subheader("Player Goal Stats")
+    st.markdown("<h3 style='text-align: center;'>Player Goal Stats</h3>", unsafe_allow_html=True)
+    st.write(" ")
 
+    col2_1, col2_2 = st.columns(2, gap='medium')
 
-    # # Player Goal Stats section
-    # # st.subheader("Player Goal Stats")
-    # st.markdown("<h3 style='text-align: center;'>Player Goal Stats</h3>", unsafe_allow_html=True)
+    with col2_1.container():
+        # Top goalscorers of all time
+        st.markdown("##### Top Goalscorers of All-time - " + selected_tournament)
+        st.dataframe(tour_stats(selected_tournament, gs, start_year, end_year, "Top Goalscorers All-time"),
+                     use_container_width=True,
+                     hide_index=True)
 
-    # col2_1, col2_2 = st.columns(2, gap='medium')
+    with col2_2.container():
+        # Top goalscorers of the latest tournament
+        st.markdown("##### Top Goalscorers of " + selected_tournament + " " + str(tour_stats(selected_tournament, rs, start_year, end_year, "tour_year")))
+        st.dataframe(tour_stats(selected_tournament, gs, start_year, end_year, "Top Goalscorers Latest Tournament"),
+                     use_container_width=True,
+                     hide_index=True)
 
 
 # Penalty Stats
-# with tab3:
-    
+with tab3:
+    # Player Goal Stats section
+    # st.subheader("Penalty Stats")
+    st.markdown("<h3 style='text-align: center;'>Penalty Stats</h3>", unsafe_allow_html=True)
+    st.write(" ")
+
+    # Teams who have played in most penalty shootouts and their respective success rates
+    # st.markdown("##### Most Penalty Shootouts")
+    st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Pen Shootout Stats"),
+                use_container_width=True,
+                hide_index=True)
+
+
+    col2_1, col2_2 = st.columns(2, gap='medium')
+
+
+
 

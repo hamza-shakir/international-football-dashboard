@@ -98,8 +98,11 @@ def goalscorers_data(goalscorers_df, rs):
     goalscorers_df.rename(columns = {'date':'Date',
                         'home_team':'Home Team',
                         'away_team':'Away Team',
-                        'team':'Team',
-                        'scorer':'Scorer'
+                        'team':'Scorer Team',
+                        'scorer':'Scorer',
+                        'minute':'Minute',
+                        'own_goal':'Own Goal',
+                        'penalty':'Penalty'
                         }, inplace = True)
     
     # changing date format from 'object' to 'datetime'

@@ -8,7 +8,11 @@
 4. [References](#references)
 
 ## _Overview_
-Following up on the [*Visualising Data in Football project*](https://github.com/Hamza-149/visualizing-data-in-football), I built an interactive dashboard using Streamlit and other libraries. This user-friendly dashboard will allow users to freely interact with the analysis I've carried out so far, making it easy to interpret the visualisations and charts without having to go through all the code.
+→ Analyzed data from the past 100 years of major international football tournaments to assess the impact of home advantage using Python and various data viz libraries.
+
+→ Developed a live interactive dashboard for users to explore insights and interact with additional football data.
+
+→ Provided comprehensive findings on the host nation's performances and facilitated user-driven exploration of miscellaneous football statistics.
 
 ## _Tournaments Analysed_
 - FIFA World Cup
