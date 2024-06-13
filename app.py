@@ -3,7 +3,7 @@ import pandas as pd
 import datetime
 
 from modules.data_processing import results_data, goalscorers_data
-from modules.visualizations import trophy_count_hbarchart, goals_count_line_plot, tour_stats
+from modules.visualizations import trophy_count_hbarchart, goals_count_line_plot, pen_pie_chart, tour_stats
 
 #setting page configurations
 st.set_page_config(page_title = "International Football Dashboard",
@@ -161,19 +161,19 @@ with tab1:
 
     with col2_1.container(border=True):
         st.metric(label=":orange[Champion]", 
-                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Champion"), 
-                  delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
+                  value=tour_stats(selected_tournament, rs, None, start_year, end_year, "Champion"), 
+                  delta=tour_stats(selected_tournament, rs, None, start_year, end_year, "tour_year"),
                   delta_color="off")
     
     with col2_2.container(border=True):
         st.metric(label="Final Score",
-                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Final Score"),
-                  delta=tour_stats(selected_tournament, rs, start_year, end_year, "pens"))
+                  value=tour_stats(selected_tournament, rs, None, start_year, end_year, "Final Score"),
+                  delta=tour_stats(selected_tournament, rs, None, start_year, end_year, "pens"))
     
     with col2_3.container(border=True):
         st.metric(label=":blue[Runner-up]",
-                  value=tour_stats(selected_tournament, rs, start_year, end_year, "Runner-up"),
-                  delta=tour_stats(selected_tournament, rs, start_year, end_year, "tour_year"),
+                  value=tour_stats(selected_tournament, rs, None, start_year, end_year, "Runner-up"),
+                  delta=tour_stats(selected_tournament, rs, None, start_year, end_year, "tour_year"),
                   delta_color="off")
     
 
@@ -191,13 +191,13 @@ with tab1:
 
     with col3_1.container():
         st.markdown("##### Most Appearances in " + selected_tournament + " Finals")
-        st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Final Appearances"),
+        st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Final Appearances"),
                      use_container_width=True,
                      hide_index=True)
 
     with col3_2.container():
         st.markdown("##### Most Appearances in " + selected_tournament)
-        st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Tournament Appearances"),
+        st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Tournament Appearances"),
                      use_container_width=True,
                      hide_index=True)
 
@@ -224,18 +224,23 @@ with tab2:
     st.markdown("<h3 style='text-align: center;'>Team Goal Stats</h3>", unsafe_allow_html=True)
     st.write(" ")
 
-    col1_1, col1_2 = st.columns(2, gap='medium')
+    # Teams who have scored the most goals of all time (table)
+    st.dataframe(tour_stats(selected_tournament, rs, gs, start_year, end_year, "Teams with Most Goals Scored"),
+                    use_container_width=True,
+                    hide_index=True)
 
-    with col1_1.container():
-        # Teams who have scored the most goals of all time (table)
-        st.dataframe(tour_stats(selected_tournament, gs, start_year, end_year, "Teams with Most Goals Scored"),
-                     use_container_width=True,
-                     hide_index=True)
+    # col1_1, col1_2 = st.columns(2, gap='medium')
 
-    with col1_2.container():
-        # 
-        st.dataframe(use_container_width=True,
-                     hide_index=True)
+    # with col1_1.container():
+    #     # Teams who have scored the most goals of all time (table)
+    #     st.dataframe(tour_stats(selected_tournament, rs, gs, start_year, end_year, "Teams with Most Goals Scored"),
+    #                  use_container_width=True,
+    #                  hide_index=True)
+
+    # with col1_2.container():
+    #     # 
+    #     st.dataframe(use_container_width=True,
+    #                  hide_index=True)
 
 
     # visual divider between sections
@@ -252,14 +257,14 @@ with tab2:
     with col2_1.container():
         # Top goalscorers of all time
         st.markdown("##### Top Goalscorers of All-time - " + selected_tournament)
-        st.dataframe(tour_stats(selected_tournament, gs, start_year, end_year, "Top Goalscorers All-time"),
+        st.dataframe(tour_stats(selected_tournament, None, gs, start_year, end_year, "Top Goalscorers All-time"),
                      use_container_width=True,
                      hide_index=True)
 
     with col2_2.container():
         # Top goalscorers of the latest tournament
-        st.markdown("##### Top Goalscorers of " + selected_tournament + " " + str(tour_stats(selected_tournament, rs, start_year, end_year, "tour_year")))
-        st.dataframe(tour_stats(selected_tournament, gs, start_year, end_year, "Top Goalscorers Latest Tournament"),
+        st.markdown("##### Top Goalscorers of " + selected_tournament + " " + str(tour_stats(selected_tournament, rs, None, start_year, end_year, "tour_year")))
+        st.dataframe(tour_stats(selected_tournament, None, gs, start_year, end_year, "Top Goalscorers Latest Tournament"),
                      use_container_width=True,
                      hide_index=True)
 
@@ -271,14 +276,20 @@ with tab3:
     st.markdown("<h3 style='text-align: center;'>Penalty Stats</h3>", unsafe_allow_html=True)
     st.write(" ")
 
-    # Teams who have played in most penalty shootouts and their respective success rates
-    # st.markdown("##### Most Penalty Shootouts")
-    st.dataframe(tour_stats(selected_tournament, rs, start_year, end_year, "Pen Shootout Stats"),
-                use_container_width=True,
-                hide_index=True)
+    col1_1, col1_2 = st.columns(2, gap='medium')
 
+    with col1_1.container():
+        # Pie chart to show the difference in success rates of taking the first penalty vs the second penalty in a shootout
+        st.markdown("##### Penalty success rates when:")
+        st.markdown(":orange[_Under maintenance_]")
+        # st.plotly_chart(pen_pie_chart(selected_tournament, gs, start_year, end_year), use_container_width=True)
 
-    col2_1, col2_2 = st.columns(2, gap='medium')
+    with col1_2.container():
+        # Teams who have played in most penalty shootouts and their respective success rates
+        st.markdown("##### Most Penalty Shootouts")
+        st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Pen Shootout Stats"),
+                    use_container_width=True,
+                    hide_index=True)
 
 
 

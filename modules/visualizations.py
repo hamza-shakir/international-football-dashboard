@@ -331,51 +331,84 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
     return fig_goals
 
 
-# retrieving stats for the "Tournament Stats" tab
-def tour_stats(tournament_name, rs, start_year, end_year, stat):
+# creates a pie chart to show the difference in success rates of taking the first penalty vs the second penalty in a shootout
+def pen_pie_chart(tournament_name, gs, start_year, end_year):
     # determining the year range between which the user wants to view the data
-    rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
+    gs = gs[(gs['Year']>=start_year) & (gs['Year']<=end_year)]
 
     # creating dataframe for the tournament of choice
-    tournament = rs.loc[rs['Tournament'] == tournament_name]
+    tournament = gs.loc[gs['Tournament'] == tournament_name]
 
-    # creating dataframes for finals of the respective tournaments
-    tournament_groupby = tournament.groupby('Year')
-    tournament_final = tournament_groupby.last()
+    # Filter the DataFrame to include only rows where 'Shootout' is True
+    shootout_matches = tournament[tournament['Shootout'] == True]
 
-    # resolving certain faults in the Finals data of the 'Copa América'
-    if tournament_name == 'Copa América':
-        # resolving certain faults in the Finals data
-        indexNames = tournament_final[tournament_final['Winning Team'] == 'Draw'].index
-        tournament_final.drop(indexNames, inplace = True)
+    # Calcualting the number of win rate for taking the penalty first vs second
+    first_shooter_wins = len(shootout_matches[shootout_matches['Winning Team'] == shootout_matches['first_shooter']])
+    second_shooter_wins = len(shootout_matches[shootout_matches['Winning Team'] != shootout_matches['first_shooter']])
+
+    # Creating values and labels arrays for pie chart
+    values = [first_shooter_wins , second_shooter_wins ]
+    labels = ['Takes 1st penalty', 'Takes second penalty']
+
+    fig_pen_pie_chart = go.Figure(date=[go.Pie(labels=labels, values=values)])
+
+    return fig_pen_pie_chart
+
+
+
+# retrieving stats for the "Tournament Stats" tab
+def tour_stats(tournament_name, rs, gs, start_year, end_year, stat):
+    if gs is not None:
+        # determining the year range between which the user wants to view the data
+        gs = gs[(gs['Year']>=start_year) & (gs['Year']<=end_year)]
+
+        # creating dataframe for the tournament of choice
+        gs_tournament = gs.loc[gs['Tournament'] == tournament_name]
+
+    if rs is not None:
+        # determining the year range between which the user wants to view the data
+        rs = rs[(rs['Year']>=start_year) & (rs['Year']<=end_year)]
+
+        # creating dataframe for the tournament of choice
+        rs_tournament = rs.loc[rs['Tournament'] == tournament_name]
+
+        # creating dataframes for finals of the respective tournaments
+        rs_tournament_groupby = rs_tournament.groupby('Year')
+        rs_tournament_final = rs_tournament_groupby.last()
+
+        # resolving certain faults in the Finals data of the 'Copa América'
+        if tournament_name == 'Copa América':
+            # resolving certain faults in the Finals data
+            indexNames = rs_tournament_final[rs_tournament_final['Winning Team'] == 'Draw'].index
+            rs_tournament_final.drop(indexNames, inplace = True)
 
 
     # Obtaining champion's name
     if stat == "Champion":
-        return tournament['Winning Team'].iloc[-1]
+        return rs_tournament['Winning Team'].iloc[-1]
 
 
     # Obtaining runner-up name
     elif stat == "Runner-up":
-        return tournament['Losing Team'].iloc[-1]
+        return rs_tournament['Losing Team'].iloc[-1]
     
 
     # Year in which the tournament was played in
     elif stat == "tour_year":
-        return int(tournament['Year'].iloc[-1])
+        return int(rs_tournament['Year'].iloc[-1])
     
 
     # Obtaining Finals scoreline
     elif stat == "Final Score":
-        if tournament['Winning Team'].iloc[-1] == tournament['Home Team'].iloc[-1]:
-            return str(int(tournament['Home Score'].iloc[-1])) + " - " + str(int(tournament['Away Score'].iloc[-1]))
+        if rs_tournament['Winning Team'].iloc[-1] == rs_tournament['Home Team'].iloc[-1]:
+            return str(int(rs_tournament['Home Score'].iloc[-1])) + " - " + str(int(rs_tournament['Away Score'].iloc[-1]))
         else:
-            return str(int(tournament['Away Score'].iloc[-1])) + " - " + str(int(tournament['Home Score'].iloc[-1]))
+            return str(int(rs_tournament['Away Score'].iloc[-1])) + " - " + str(int(rs_tournament['Home Score'].iloc[-1]))
     
 
     # Checking if Finals was decided on penalties
     elif stat == "pens":
-        if tournament['Shootout'].iloc[-1] == True:
+        if rs_tournament['Shootout'].iloc[-1] == True:
             return "Won via Penalties"
         else:
             return None
@@ -383,7 +416,7 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
 
     # Finals appearnace count
     elif stat == "Final Appearances":
-        combined_teams = pd.concat([tournament_final['Winning Team'], tournament_final['Losing Team']], ignore_index=True)
+        combined_teams = pd.concat([rs_tournament_final['Winning Team'], rs_tournament_final['Losing Team']], ignore_index=True)
 
         # creating dataframes to identify the winners and how many times they have won the tournament
         final_appearances = pd.DataFrame(combined_teams.value_counts())
@@ -403,14 +436,14 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
     # Tournament appearance count
     elif stat == "Tournament Appearances":
         # Create a list of all teams
-        all_teams = pd.concat([tournament['Home Team'], tournament['Away Team']], ignore_index=True).unique()
+        all_teams = pd.concat([rs_tournament['Home Team'], rs_tournament['Away Team']], ignore_index=True).unique()
 
         # Initialize the new dataframe
         team_years = {'Country': [], 'Number of Tournaments played in': []}
 
         # Calculate the number of unique years each team played
         for team in all_teams:
-            years_played = tournament[(tournament['Home Team'] == team) | (tournament['Away Team'] == team)]['Year'].nunique()
+            years_played = rs_tournament[(rs_tournament['Home Team'] == team) | (rs_tournament['Away Team'] == team)]['Year'].nunique()
             team_years['Country'].append(team)
             team_years['Number of Tournaments played in'].append(years_played)
 
@@ -426,10 +459,10 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
     # Top goalscorers of all time
     elif stat == "Top Goalscorers All-time":
         # Group by scorer and team, count total goals
-        total_goals = tournament[tournament['Own Goal'] == False].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Total Goals')
+        total_goals = gs_tournament[gs_tournament['Own Goal'] == False].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Goals Scored')
 
         # Filter non-penalty goals and count them
-        non_penalty_goals = tournament[tournament['Penalty'] == False].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Non-Penalty Goals')
+        non_penalty_goals = gs_tournament[gs_tournament['Penalty'] == False].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Non-Penalty Goals')
 
         # Merge the two dataframes on 'Scorer' and 'Team'
         goalscorers_df = pd.merge(total_goals, non_penalty_goals, on=['Scorer', 'Scorer Team'], how='left')
@@ -438,13 +471,21 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
         goalscorers_df ['Non-Penalty Goals'] = goalscorers_df ['Non-Penalty Goals'].fillna(0).astype(int)
 
         # Create column for number of penalty goals scored
-        goalscorers_df ['Penalty Goals'] = abs(goalscorers_df ['Total Goals'] - goalscorers_df ['Non-Penalty Goals'])
-
-        # Calculating the number of games played
-        # need to work on this
+        goalscorers_df ['Penalty Goals'] = abs(goalscorers_df ['Goals Scored'] - goalscorers_df ['Non-Penalty Goals'])
 
         # Sort dataframes by trophies won in descending order
-        goalscorers_df = goalscorers_df.sort_values(by='Total Goals', ascending=False).reset_index(drop=True)
+        goalscorers_df = goalscorers_df.sort_values(by='Goals Scored', ascending=False).reset_index(drop=True)
+
+        # Create a column to show the Ranking of the goalscorer
+        goalscorers_df['Rank'] = goalscorers_df.index + 1
+
+        # Reshuffling the column order
+        scorer_rank = goalscorers_df.pop('Rank')
+        goalscorers_df.insert(0, 'Rank', scorer_rank)
+
+        # Renaming columns
+        goalscorers_df.rename(columns={'Scorer Team': 'Country',
+                                       'Scorer': 'Player'}, inplace=True)
 
         return goalscorers_df
     
@@ -452,10 +493,10 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
     # Top goalscorers of latest tournament
     elif stat == "Top Goalscorers Latest Tournament":
         # Group by scorer and team, count total goals
-        total_goals = tournament[(tournament['Own Goal'] == False) & (tournament['Year'] == tournament['Year'].iloc[-1])].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Total Goals')
+        total_goals = gs_tournament[(gs_tournament['Own Goal'] == False) & (gs_tournament['Year'] == gs_tournament['Year'].iloc[-1])].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Goals Scored')
 
         # Filter non-penalty goals and count them
-        non_penalty_goals = tournament[(tournament['Penalty'] == 'False') & (tournament['Year'] == tournament['Year'].iloc[-1])].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Non-Penalty Goals')
+        non_penalty_goals = gs_tournament[(gs_tournament['Penalty'] == False) & (gs_tournament['Year'] == gs_tournament['Year'].iloc[-1])].groupby(['Scorer', 'Scorer Team']).size().reset_index(name='Non-Penalty Goals')
 
         # Merge the two dataframes on 'Scorer' and 'Team'
         goalscorers_df = pd.merge(total_goals, non_penalty_goals, on=['Scorer', 'Scorer Team'], how='left')
@@ -464,13 +505,21 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
         goalscorers_df ['Non-Penalty Goals'] = goalscorers_df ['Non-Penalty Goals'].fillna(0).astype(int)
 
         # Create column for number of penalty goals scored
-        goalscorers_df ['Penalty Goals'] = abs(goalscorers_df ['Total Goals'] - goalscorers_df ['Non-Penalty Goals'])
-
-        # Calculating the number of games played
-        # need to work on this
+        goalscorers_df ['Penalty Goals'] = abs(goalscorers_df ['Goals Scored'] - goalscorers_df ['Non-Penalty Goals'])
 
         # Sort dataframes by trophies won in descending order
-        goalscorers_df = goalscorers_df.sort_values(by='Total Goals', ascending=False).reset_index(drop=True)
+        goalscorers_df = goalscorers_df.sort_values(by='Goals Scored', ascending=False).reset_index(drop=True)
+
+        # Create a column to show the Ranking of the goalscorer
+        goalscorers_df['Rank'] = goalscorers_df.index + 1
+
+        # Reshuffling the column order
+        scorer_rank = goalscorers_df.pop('Rank')
+        goalscorers_df.insert(0, 'Rank', scorer_rank)
+
+        # Renaming columns
+        goalscorers_df.rename(columns={'Scorer Team': 'Country',
+                                       'Scorer': 'Player'}, inplace=True)
 
         return goalscorers_df
     
@@ -478,10 +527,10 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
     # Teams with most goals scored
     elif stat == "Teams with Most Goals Scored":
     # Group by scorer and team, count total goals
-        total_goals = tournament[tournament['Own Goal'] == False].groupby(['Scorer Team']).size().reset_index(name='Total Goals')
+        total_goals = gs_tournament[gs_tournament['Own Goal'] == False].groupby(['Scorer Team']).size().reset_index(name='Goals Scored')
 
         # Filter non-penalty goals and count them
-        non_penalty_goals = tournament[tournament['Penalty'] == False].groupby(['Scorer Team']).size().reset_index(name='Non-Penalty Goals')
+        non_penalty_goals = gs_tournament[gs_tournament['Penalty'] == False].groupby(['Scorer Team']).size().reset_index(name='Non-Penalty Goals')
 
         # Merge the two dataframes on 'Scorer' and 'Team'
         teamgoals_df = pd.merge(total_goals, non_penalty_goals, on=['Scorer Team'], how='left')
@@ -490,13 +539,41 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
         teamgoals_df ['Non-Penalty Goals'] = teamgoals_df ['Non-Penalty Goals'].fillna(0).astype(int)
 
         # Create column for number of penalty goals scored
-        teamgoals_df ['Penalty Goals'] = abs(teamgoals_df ['Total Goals'] - teamgoals_df ['Non-Penalty Goals'])
+        teamgoals_df ['Penalty Goals'] = abs(teamgoals_df ['Goals Scored'] - teamgoals_df ['Non-Penalty Goals'])
 
-        # Calculating the number of matches played
-        # matches_played = tournament.groupby().size.reset_index(name='Matches Played')
+        # Calculating the number of matches played per team
+        # Count home matches
+        home_matches = rs_tournament['Home Team'].value_counts().reset_index()
+        home_matches.columns = ['Scorer Team', 'Home Matches']
+
+        # Count away matches
+        away_matches = rs_tournament['Away Team'].value_counts().reset_index()
+        away_matches.columns = ['Scorer Team', 'Away Matches']
+
+        # Merge home and away matches
+        matches_played_df = pd.merge(home_matches, away_matches, on='Scorer Team', how='outer').fillna(0)
+
+        # Calculate total matches
+        matches_played_df['Matches Played'] = matches_played_df['Home Matches'] + matches_played_df['Away Matches']
+
+        teamgoals_df = pd.merge(teamgoals_df, matches_played_df[['Scorer Team', 'Matches Played']], on=['Scorer Team'], how='left')
+
+        # Adding goal per 90 column
+        teamgoals_df['Goals per 90'] = round(teamgoals_df['Goals Scored'] / 90, 2)
 
         # Sort dataframes by trophies won in descending order
-        teamgoals_df = teamgoals_df.sort_values(by='Total Goals', ascending=False).reset_index(drop=True)
+        teamgoals_df = teamgoals_df.sort_values(by='Goals Scored', ascending=False).reset_index(drop=True)
+
+        # Reordering the columns
+        teamgoals_df = teamgoals_df[['Scorer Team',
+                                     'Matches Played',
+                                     'Goals Scored',
+                                     'Non-Penalty Goals',
+                                     'Penalty Goals',
+                                     'Goals per 90']]
+        
+        # Renaming columns
+        teamgoals_df.rename(columns={'Scorer Team': 'Country'}, inplace=True)
 
         # Display the result
         return teamgoals_df
@@ -505,21 +582,27 @@ def tour_stats(tournament_name, rs, start_year, end_year, stat):
     # Teams who have played in most penalty shootouts and their respective success rates
     elif stat == "Pen Shootout Stats":
         # Filter the DataFrame to include only rows where 'Shootout' is True
-        shootout_matches = tournament[tournament['Shootout'] == True]
+        shootout_matches = rs_tournament[rs_tournament['Shootout'] == True]
 
-        combined_teams = pd.concat([shootout_matches ['Winning Team'], shootout_matches ['Losing Team']], ignore_index=True)
+        # Calculate the number of wins and losses
+        wins = shootout_matches['Winning Team'].value_counts().reset_index()
+        wins.columns = ['Country', 'Wins']
 
-        # creating dataframes to identify the winners and how many times they have won the tournament
-        shootout_appearances = pd.DataFrame(combined_teams.value_counts())
+        losses = shootout_matches['Losing Team'].value_counts().reset_index()
+        losses.columns = ['Country', 'Losses']
 
-        # Resetting index
-        shootout_appearances.reset_index(drop=False, inplace=True)
+        # Merge the two DataFrames on the 'Team' column
+        shootout_appearances = pd.merge(wins, losses, on='Country', how='outer').fillna(0)
 
-        # Renaming columns
-        shootout_appearances.rename(columns={'index': 'Country', 'count': 'Most Appearances in Penalty Shootouts'}, inplace=True)
+        # Calculating the total number of penalty shootouts partcipated in
+        shootout_appearances['Penalty Shootouts'] = shootout_appearances['Wins'] + shootout_appearances['Losses']
 
         # Sort dataframes by trophies won in descending order
-        shootout_appearances = shootout_appearances.sort_values(by='Most Appearances in Penalty Shootouts', ascending=False)
+        shootout_appearances = shootout_appearances.sort_values(by='Penalty Shootouts', ascending=False)
+
+        # Reshuffling the column order
+        pen_shoutout_total = shootout_appearances.pop('Penalty Shootouts')
+        shootout_appearances.insert(1, 'Penalty Shootouts', pen_shoutout_total)
 
         return shootout_appearances
         

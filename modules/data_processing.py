@@ -88,6 +88,11 @@ def results_data(results_df, shootouts_df):
     shootout = rs.pop('Shootout')
     rs.insert(6, 'Shootout', shootout)
 
+    # Assigning unique IDs for each match
+    rs['Match ID'] = rs.index
+    match_id = rs.pop('Match ID')
+    rs.insert(2, 'Match ID', match_id)
+
     return rs
 
 
@@ -119,6 +124,6 @@ def goalscorers_data(goalscorers_df, rs):
     gs = pd.merge(goalscorers_df, rs, how = 'outer', on = ['Year', 'Date', 'Home Team', 'Away Team'])
 
     # dropping columns that are irrelevant to this dataframe
-    gs = gs.drop(columns = ['Shootout'])
+    # gs = gs.drop(columns = ['Shootout'])
 
     return gs
