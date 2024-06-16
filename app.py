@@ -3,7 +3,7 @@ import pandas as pd
 import datetime
 
 from modules.data_processing import results_data, goalscorers_data
-from modules.visualizations import trophy_count_hbarchart, goals_count_line_plot, pen_pie_chart, tour_stats
+from modules.visualizations import trophy_count_hbarchart, goals_count_line_plot, pen_pie_chart, goal_min_hist, tour_stats
 
 #setting page configurations
 st.set_page_config(page_title = "International Football Dashboard",
@@ -62,7 +62,6 @@ gs = goalscorers_data(goalscorers_df, rs)
 
 #---------------------------------------dispalying content---------------------------------------------------------
 
-
 # creating 2 columns for a tournament dropdown list and a slider with a range of years
 fixed_header = st.container()
 row1 = fixed_header.columns([1, 3], gap='medium')
@@ -91,7 +90,7 @@ selected_tournament = row1[0].selectbox("Choose Tournament",
                                         options = tournaments,
                                         placeholder = "Choose Tournament",
                                         help = "Select a tournament to view its stats",
-                                        index = 0) 
+                                        index = 0)
 
 # slider with a range of years to view data from
 start_year, end_year = row1[1].select_slider("Select Year",
@@ -99,11 +98,12 @@ start_year, end_year = row1[1].select_slider("Select Year",
                                              value = (1916, datetime.date.today().year),
                                              help = "Select range of years between which you would like to view the stats")
 
-# creating tabs to view different charts and stats
-tab1, tab2, tab3 = fixed_header.tabs(["Tournament Stats", "Goals Stats", "Penalty Shootout Stats"])
-
 
 #---------------------------------------------------------------------------------------------------------------------------------------
+
+
+# creating tabs to view different charts and stats
+tab1, tab2, tab3 = st.tabs(["Tournament Stats", "Goals Stats", "Penalty Shootout Stats"])
 
 
 # Tournament Stats
@@ -210,9 +210,17 @@ with tab2:
     # Goal Trends section
     # st.subheader("Goal Trends")
     st.markdown("<h3 style='text-align: center;'>{} Goal Trends</h3>".format(selected_tournament), unsafe_allow_html=True)
+    
+    col1_1, col1_2 = st.columns(2, gap='medium')
 
-    # Goals count line plot
-    st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+    with col1_1.container():
+        st.markdown("##### Goals Scored per Tournament")
+        st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+
+    
+    with col1_2.container():
+        st.markdown("##### Goals Scored per Minute")
+        st.plotly_chart(goal_min_hist(selected_tournament, gs, start_year, end_year), use_container_width=True)
     
 
     # visual divider between sections
@@ -228,19 +236,6 @@ with tab2:
     st.dataframe(tour_stats(selected_tournament, rs, gs, start_year, end_year, "Teams with Most Goals Scored"),
                     use_container_width=True,
                     hide_index=True)
-
-    # col1_1, col1_2 = st.columns(2, gap='medium')
-
-    # with col1_1.container():
-    #     # Teams who have scored the most goals of all time (table)
-    #     st.dataframe(tour_stats(selected_tournament, rs, gs, start_year, end_year, "Teams with Most Goals Scored"),
-    #                  use_container_width=True,
-    #                  hide_index=True)
-
-    # with col1_2.container():
-    #     # 
-    #     st.dataframe(use_container_width=True,
-    #                  hide_index=True)
 
 
     # visual divider between sections

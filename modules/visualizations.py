@@ -316,7 +316,11 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
         tournament_goals['Goals Scored'] = tournament_goals['Home Score'] + tournament_goals['Away Score']
 
         # Add line plots to the single plot
-        fig_goals.add_trace(go.Scatter(x=tournament_goals.index, y=tournament_goals['Goals Scored'], mode='lines+markers', name=tournament_name))
+        fig_goals.add_trace(go.Scatter(x=tournament_goals.index,
+                                       y=tournament_goals['Goals Scored'],
+                                       mode='lines+markers',
+                                    #    marker_color='#FF4B4B',
+                                       name=tournament_name))
  
 
     # Update layout settings
@@ -333,6 +337,9 @@ def goals_count_line_plot(tournament_name, rs, start_year, end_year):
 
 # creates a pie chart to show the difference in success rates of taking the first penalty vs the second penalty in a shootout
 def pen_pie_chart(tournament_name, gs, start_year, end_year):
+    # Create a single plot
+    fig_pen_pie_chart = go.Figure()
+
     # determining the year range between which the user wants to view the data
     gs = gs[(gs['Year']>=start_year) & (gs['Year']<=end_year)]
 
@@ -350,10 +357,38 @@ def pen_pie_chart(tournament_name, gs, start_year, end_year):
     values = [first_shooter_wins , second_shooter_wins ]
     labels = ['Takes 1st penalty', 'Takes second penalty']
 
-    fig_pen_pie_chart = go.Figure(date=[go.Pie(labels=labels, values=values)])
+    fig_pen_pie_chart = go.Figure(data=[go.Pie(labels=labels, values=values)])
 
     return fig_pen_pie_chart
 
+
+# creates a scatter plot showing the minutes at which goals were scored
+def goal_min_hist(tournament_name, gs, start_year, end_year):
+    # determining the year range between which the user wants to view the data
+    gs = gs[(gs['Year']>=start_year) & (gs['Year']<=end_year)]
+
+    # creating dataframe for the tournament of choice
+    tournament = gs.loc[gs['Tournament'] == tournament_name]
+    tournament = tournament.dropna(subset=['Minute'])
+
+    # Create a single plot
+    fig_goal_min = go.Figure()
+
+    # Create a DataFrame
+    goal_data = pd.DataFrame({'Minute': tournament['Minute']})
+
+    # Create a histogram
+    fig_goal_min_hist = go.Figure(data=[go.Histogram(x=goal_data['Minute'],
+                                                     nbinsx=30)])
+
+    # Update layout
+    fig_goal_min_hist.update_layout(
+        xaxis_title='Minute',
+        yaxis_title='Count of Goals',
+        dragmode=False
+    )
+    
+    return fig_goal_min_hist
 
 
 # retrieving stats for the "Tournament Stats" tab
@@ -559,7 +594,7 @@ def tour_stats(tournament_name, rs, gs, start_year, end_year, stat):
         teamgoals_df = pd.merge(teamgoals_df, matches_played_df[['Scorer Team', 'Matches Played']], on=['Scorer Team'], how='left')
 
         # Adding goal per 90 column
-        teamgoals_df['Goals per 90'] = round(teamgoals_df['Goals Scored'] / 90, 2)
+        teamgoals_df['Goals per 90'] = round(teamgoals_df['Goals Scored'] / teamgoals_df['Matches Played'], 2)
 
         # Sort dataframes by trophies won in descending order
         teamgoals_df = teamgoals_df.sort_values(by='Goals Scored', ascending=False).reset_index(drop=True)

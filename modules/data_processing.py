@@ -123,7 +123,7 @@ def goalscorers_data(goalscorers_df, rs):
     # merging goalscorers' data and results data
     gs = pd.merge(goalscorers_df, rs, how = 'outer', on = ['Year', 'Date', 'Home Team', 'Away Team'])
 
-    # dropping columns that are irrelevant to this dataframe
-    # gs = gs.drop(columns = ['Shootout'])
+    # dropping NaN values that are irrelevant to this dataframe
+    gs = gs.dropna(subset = ['Minute'])
 
     return gs
