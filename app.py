@@ -119,19 +119,22 @@ with tab1:
     
 
     # splitting the 2 charts into columns
-    col1_1, col1_2 = st.columns([3,2])
+    col1_1, col1_2 = st.columns([3,2], gap="medium")
 
     # Display trophies chart based on toggle state
     if toggle:
         fig_trophies, fig_pie_chart = trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle)
         with col1_1.container():
+            st.markdown("##### Most Decorated Countries - " + selected_tournament)
             st.plotly_chart(fig_trophies, use_container_width=True)
 
         with col1_2.container():
+            st.markdown("##### Trophies Won as :blue[Host] vs Trophies Won as :violet[Neutral]")
             st.plotly_chart(fig_pie_chart, use_container_width=True)
     else:
-        with col1_1.container():
-            st.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), use_container_width=True)
+        # with col1_1.container():
+        st.markdown("##### Most Decorated Champions - " + selected_tournament)
+        st.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), use_container_width=True)
 
 
     # visual divider between sections
