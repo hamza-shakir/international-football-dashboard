@@ -41,7 +41,7 @@ with st.sidebar:
                 * The [*dataset*](https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017) 
                 I used for the analysis was obtained from [*Kaggle*](https://www.kaggle.com/).
                 * To clean some of the data that I extracted from kaggle, I cross-referenced it with the data available on Wikipedia.
-                * [*Jupyter notebook*](https://github.com/hamza-shakir/visualizing-data-in-football) where I carried out all the cleaning and analysis.
+                * [*Jupyter notebook*](https://github.com/hamza-shakir/international-football-dashboard/blob/main/jupyter_notebook/EDA.ipynb) where I carried out all the cleaning and analysis.
                 """)
 
 
