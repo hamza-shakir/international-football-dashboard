@@ -1469,6 +1469,22 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 1946-02-08,Paraguay,Uruguay,Paraguay,Albino Rodríguez,75,FALSE,FALSE
 1946-02-10,Argentina,Brazil,Argentina,Norberto Doroteo Méndez,14,FALSE,FALSE
 1946-02-10,Argentina,Brazil,Argentina,Norberto Doroteo Méndez,20,FALSE,FALSE
+1947-07-13,Mexico,United States,Mexico,Adalberto López,3,FALSE,FALSE
+1947-07-13,Mexico,United States,Mexico,Adalberto López,35,FALSE,FALSE
+1947-07-13,Mexico,United States,Mexico,Angel Segura,53,FALSE,FALSE
+1947-07-13,Mexico,United States,Mexico,Rodrigo Ruíz,78,FALSE,TRUE
+1947-07-13,Mexico,United States,Mexico,Adalberto López,85,FALSE,FALSE
+1947-07-17,Cuba,Mexico,Mexico,Carlos Septién,30,FALSE,FALSE
+1947-07-17,Cuba,Mexico,Cuba,José Minsal,42,FALSE,FALSE
+1947-07-17,Cuba,Mexico,Mexico,Angel Segura,53,FALSE,FALSE
+1947-07-17,Cuba,Mexico,Mexico,Adalberto López,83,FALSE,FALSE
+1947-07-20,Cuba,United States,Cuba,Antonio Villalón,22,FALSE,FALSE
+1947-07-20,Cuba,United States,Cuba,Antonio Villalón,28,FALSE,FALSE
+1947-07-20,Cuba,United States,United States,Ed Souza,50,FALSE,FALSE
+1947-07-20,Cuba,United States,United States,Ed Valentine,55,FALSE,FALSE
+1947-07-20,Cuba,United States,Cuba,Luis Gironella,61,FALSE,FALSE
+1947-07-20,Cuba,United States,Cuba,Antonio Mederos,68,FALSE,FALSE
+1947-07-20,Cuba,United States,Cuba,Santiago Veiga,70,FALSE,FALSE
 1947-11-30,Ecuador,Bolivia,Ecuador,José María Jiménez,1,FALSE,FALSE
 1947-11-30,Ecuador,Bolivia,Ecuador,José María Jiménez,24,FALSE,FALSE
 1947-11-30,Ecuador,Bolivia,Bolivia,Benigno Gutiérrez,26,FALSE,FALSE
@@ -6159,9 +6175,9 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 1971-11-17,Netherlands,Luxembourg,Netherlands,Oeki Hoekema,54,FALSE,FALSE
 1971-11-17,Netherlands,Luxembourg,Netherlands,Johan Cruyff,60,FALSE,FALSE
 1971-11-17,Netherlands,Luxembourg,Netherlands,Rinus Israël,82,FALSE,FALSE
-1971-11-20,Cuba,Costa Rica,Cuba,Roy Sáenz,42,FALSE,FALSE
-1971-11-20,Cuba,Costa Rica,Cuba,Roy Sáenz,44,FALSE,FALSE
-1971-11-20,Cuba,Costa Rica,Cuba,Alfonso Estupiñán,55,FALSE,FALSE
+1971-11-20,Cuba,Costa Rica,Costa Rica,Roy Sáenz,42,FALSE,FALSE
+1971-11-20,Cuba,Costa Rica,Costa Rica,Roy Sáenz,44,FALSE,FALSE
+1971-11-20,Cuba,Costa Rica,Costa Rica,Alfonso Estupiñán,55,FALSE,FALSE
 1971-11-20,Italy,Austria,Italy,Pierino Prati,10,FALSE,FALSE
 1971-11-20,Italy,Austria,Austria,Kurt Jara,36,FALSE,FALSE
 1971-11-20,Italy,Austria,Austria,Robert Sara,59,FALSE,FALSE
@@ -8960,10 +8976,8 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 1980-09-22,Bangladesh,Iran,Iran,Behtash Fariba,80,FALSE,FALSE
 1980-09-22,Bangladesh,Iran,Iran,Behtash Fariba,82,FALSE,FALSE
 1980-09-22,Bangladesh,Iran,Iran,Abdolreza Barzegari,87,FALSE,FALSE
-1980-09-23,Malaysia,Qatar,Malaysia,Tukamin Bahari,NA,NA,NA
-1980-09-23,Malaysia,Qatar,Qatar,NA,NA,NA,NA
-1980-09-23,Malaysia,Qatar,Malaysia,Tukamin Bahari,NA,FALSE,FALSE
-1980-09-23,Malaysia,Qatar,Qatar,NA,NA,FALSE,FALSE
+1980-09-23,Malaysia,Qatar,Malaysia,Tukamin Bahari,33,FALSE,FALSE
+1980-09-23,Malaysia,Qatar,Qatar,NA,52,FALSE,FALSE
 1980-09-23,Syria,China PR,Syria,Jamal Keshek,86,FALSE,FALSE
 1980-09-24,Finland,Austria,Austria,Kurt Jara,13,FALSE,FALSE
 1980-09-24,Finland,Austria,Austria,Kurt Welzl,77,FALSE,FALSE
@@ -19614,6 +19628,9 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2000-04-26,Brazil,Ecuador,Ecuador,Ulises de la Cruz,75,FALSE,FALSE
 2000-04-26,Chile,Peru,Peru,Juan Jayo,38,FALSE,FALSE
 2000-04-26,Chile,Peru,Chile,Javier Margas,42,FALSE,FALSE
+2000-04-26,Lithuania,Latvia,Latvia,Ēriks Pelcis,12,FALSE,FALSE
+2000-04-26,Lithuania,Latvia,Lithuania,Vidas Dančenka,64,FALSE,FALSE
+2000-04-26,Lithuania,Latvia,Lithuania,Darius Maciulevičius,87,FALSE,FALSE
 2000-04-26,Paraguay,Uruguay,Paraguay,Celso Ayala,35,FALSE,FALSE
 2000-04-26,Venezuela,Argentina,Argentina,Roberto Ayala,8,FALSE,FALSE
 2000-04-26,Venezuela,Argentina,Argentina,Ariel Ortega,24,FALSE,FALSE
@@ -38303,23 +38320,15 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2019-03-26,Switzerland,Denmark,Denmark,Christian Gytkjær,88,FALSE,FALSE
 2019-03-26,Switzerland,Denmark,Denmark,Henrik Dalsgaard,90,FALSE,FALSE
 2019-06-05,Portugal,Switzerland,Portugal,Cristiano Ronaldo,25,FALSE,FALSE
-2019-06-05,Portugal,Switzerland,Portugal,Cristiano Ronaldo,25,FALSE,FALSE
-2019-06-05,Portugal,Switzerland,Switzerland,Ricardo Rodríguez,57,FALSE,TRUE
 2019-06-05,Portugal,Switzerland,Switzerland,Ricardo Rodríguez,57,FALSE,TRUE
 2019-06-05,Portugal,Switzerland,Portugal,Cristiano Ronaldo,88,FALSE,FALSE
-2019-06-05,Portugal,Switzerland,Portugal,Cristiano Ronaldo,88,FALSE,FALSE
-2019-06-05,Portugal,Switzerland,Portugal,Cristiano Ronaldo,90,FALSE,FALSE
 2019-06-05,Portugal,Switzerland,Portugal,Cristiano Ronaldo,90,FALSE,FALSE
 2019-06-06,Bhutan,Guam,Bhutan,Tshering Dorji,35,FALSE,FALSE
 2019-06-06,Cambodia,Pakistan,Cambodia,Sieng Chanthea,81,FALSE,FALSE
 2019-06-06,Cambodia,Pakistan,Cambodia,Kouch Sokumpheak,84,FALSE,FALSE
 2019-06-06,England,Netherlands,England,Marcus Rashford,32,FALSE,TRUE
-2019-06-06,England,Netherlands,England,Marcus Rashford,32,FALSE,TRUE
-2019-06-06,England,Netherlands,Netherlands,Matthijs de Ligt,73,FALSE,FALSE
 2019-06-06,England,Netherlands,Netherlands,Matthijs de Ligt,73,FALSE,FALSE
 2019-06-06,England,Netherlands,Netherlands,Kyle Walker,97,TRUE,FALSE
-2019-06-06,England,Netherlands,Netherlands,Kyle Walker,97,TRUE,FALSE
-2019-06-06,England,Netherlands,Netherlands,Quincy Promes,114,FALSE,FALSE
 2019-06-06,England,Netherlands,Netherlands,Quincy Promes,114,FALSE,FALSE
 2019-06-06,Laos,Bangladesh,Bangladesh,Robiul Hasan,72,FALSE,FALSE
 2019-06-06,Macau,Sri Lanka,Macau,Filipe Duarte,52,FALSE,FALSE
@@ -38406,7 +38415,6 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2019-06-08,Scotland,Cyprus,Scotland,Oliver Burke,89,FALSE,FALSE
 2019-06-08,Turkey,France,Turkey,Kaan Ayhan,30,FALSE,FALSE
 2019-06-08,Turkey,France,Turkey,Cengiz Ünder,40,FALSE,FALSE
-2019-06-09,Portugal,Netherlands,Portugal,Gonçalo Guedes,60,FALSE,FALSE
 2019-06-09,Portugal,Netherlands,Portugal,Gonçalo Guedes,60,FALSE,FALSE
 2019-06-10,Bulgaria,Kosovo,Kosovo,Milot Rashica,14,FALSE,FALSE
 2019-06-10,Bulgaria,Kosovo,Bulgaria,Ivelin Popov,43,FALSE,FALSE
@@ -41443,10 +41451,7 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2021-09-09,Paraguay,Venezuela,Venezuela,Jhon Chancellor,90,FALSE,FALSE
 2021-09-09,Uruguay,Ecuador,Uruguay,Gastón Pereiro,90,FALSE,FALSE
 2021-10-06,Italy,Spain,Spain,Ferran Torres,17,FALSE,FALSE
-2021-10-06,Italy,Spain,Spain,Ferran Torres,17,FALSE,FALSE
 2021-10-06,Italy,Spain,Spain,Ferran Torres,45,FALSE,FALSE
-2021-10-06,Italy,Spain,Spain,Ferran Torres,45,FALSE,FALSE
-2021-10-06,Italy,Spain,Italy,Lorenzo Pellegrini,83,FALSE,FALSE
 2021-10-06,Italy,Spain,Italy,Lorenzo Pellegrini,83,FALSE,FALSE
 2021-10-06,Morocco,Guinea-Bissau,Morocco,Achraf Hakimi,31,FALSE,FALSE
 2021-10-06,Morocco,Guinea-Bissau,Morocco,Imran Louza,45,FALSE,TRUE
@@ -41460,14 +41465,9 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2021-10-07,Australia,Oman,Australia,Martin Boyle,49,FALSE,FALSE
 2021-10-07,Australia,Oman,Australia,Mitchell Duke,89,FALSE,FALSE
 2021-10-07,Belgium,France,Belgium,Yannick Carrasco,37,FALSE,FALSE
-2021-10-07,Belgium,France,Belgium,Yannick Carrasco,37,FALSE,FALSE
-2021-10-07,Belgium,France,Belgium,Romelu Lukaku,40,FALSE,FALSE
 2021-10-07,Belgium,France,Belgium,Romelu Lukaku,40,FALSE,FALSE
 2021-10-07,Belgium,France,France,Karim Benzema,62,FALSE,FALSE
-2021-10-07,Belgium,France,France,Karim Benzema,62,FALSE,FALSE
 2021-10-07,Belgium,France,France,Kylian Mbappé,69,FALSE,TRUE
-2021-10-07,Belgium,France,France,Kylian Mbappé,69,FALSE,TRUE
-2021-10-07,Belgium,France,France,Théo Hernandez,90,FALSE,FALSE
 2021-10-07,Belgium,France,France,Théo Hernandez,90,FALSE,FALSE
 2021-10-07,China PR,Vietnam,China PR,Zhang Yuning,53,FALSE,FALSE
 2021-10-07,China PR,Vietnam,China PR,Wu Lei,75,FALSE,FALSE
@@ -41641,10 +41641,7 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2021-10-10,Costa Rica,El Salvador,Costa Rica,Bryan Ruiz,52,FALSE,FALSE
 2021-10-10,Costa Rica,El Salvador,Costa Rica,Celso Borges,58,FALSE,TRUE
 2021-10-10,Italy,Belgium,Italy,Nicolò Barella,46,FALSE,FALSE
-2021-10-10,Italy,Belgium,Italy,Nicolò Barella,46,FALSE,FALSE
 2021-10-10,Italy,Belgium,Italy,Domenico Berardi,65,FALSE,TRUE
-2021-10-10,Italy,Belgium,Italy,Domenico Berardi,65,FALSE,TRUE
-2021-10-10,Italy,Belgium,Belgium,Charles De Ketelaere,86,FALSE,FALSE
 2021-10-10,Italy,Belgium,Belgium,Charles De Ketelaere,86,FALSE,FALSE
 2021-10-10,Kenya,Mali,Mali,Ibrahima Koné,55,FALSE,FALSE
 2021-10-10,Madagascar,DR Congo,Madagascar,Njiva Rakotoharimalala,1,FALSE,FALSE
@@ -41653,10 +41650,7 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2021-10-10,Mexico,Honduras,Mexico,Hirving Lozano,86,FALSE,FALSE
 2021-10-10,Panama,United States,Panama,Aníbal Godoy,54,FALSE,FALSE
 2021-10-10,Spain,France,Spain,Mikel Oyarzabal,64,FALSE,FALSE
-2021-10-10,Spain,France,Spain,Mikel Oyarzabal,64,FALSE,FALSE
 2021-10-10,Spain,France,France,Karim Benzema,66,FALSE,FALSE
-2021-10-10,Spain,France,France,Karim Benzema,66,FALSE,FALSE
-2021-10-10,Spain,France,France,Kylian Mbappé,80,FALSE,FALSE
 2021-10-10,Spain,France,France,Kylian Mbappé,80,FALSE,FALSE
 2021-10-10,Uganda,Rwanda,Uganda,Fahad Bayo,22,FALSE,FALSE
 2021-10-10,Venezuela,Ecuador,Ecuador,Enner Valencia,37,FALSE,TRUE
@@ -43191,22 +43185,13 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2023-03-28,Turkey,Croatia,Croatia,Mateo Kovačić,45,FALSE,FALSE
 2023-03-28,Wales,Latvia,Wales,Kieffer Moore,41,FALSE,FALSE
 2023-06-14,Netherlands,Croatia,Netherlands,Donyell Malen,34,FALSE,FALSE
-2023-06-14,Netherlands,Croatia,Netherlands,Donyell Malen,34,FALSE,FALSE
-2023-06-14,Netherlands,Croatia,Croatia,Andrej Kramarić,55,FALSE,TRUE
 2023-06-14,Netherlands,Croatia,Croatia,Andrej Kramarić,55,FALSE,TRUE
 2023-06-14,Netherlands,Croatia,Croatia,Mario Pašalić,72,FALSE,FALSE
-2023-06-14,Netherlands,Croatia,Croatia,Mario Pašalić,72,FALSE,FALSE
-2023-06-14,Netherlands,Croatia,Netherlands,Noa Lang,90,FALSE,FALSE
 2023-06-14,Netherlands,Croatia,Netherlands,Noa Lang,90,FALSE,FALSE
 2023-06-14,Netherlands,Croatia,Croatia,Bruno Petković,98,FALSE,FALSE
-2023-06-14,Netherlands,Croatia,Croatia,Bruno Petković,98,FALSE,FALSE
-2023-06-14,Netherlands,Croatia,Croatia,Luka Modrić,116,FALSE,TRUE
 2023-06-14,Netherlands,Croatia,Croatia,Luka Modrić,116,FALSE,TRUE
 2023-06-15,Spain,Italy,Spain,Yeremy Pino,3,FALSE,FALSE
-2023-06-15,Spain,Italy,Spain,Yeremy Pino,3,FALSE,FALSE
 2023-06-15,Spain,Italy,Italy,Ciro Immobile,11,FALSE,TRUE
-2023-06-15,Spain,Italy,Italy,Ciro Immobile,11,FALSE,TRUE
-2023-06-15,Spain,Italy,Spain,Joselu,88,FALSE,FALSE
 2023-06-15,Spain,Italy,Spain,Joselu,88,FALSE,FALSE
 2023-06-16,Andorra,Switzerland,Switzerland,Remo Freuler,7,FALSE,FALSE
 2023-06-16,Andorra,Switzerland,Switzerland,Zeki Amdouni,32,FALSE,FALSE
@@ -43272,14 +43257,9 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2023-06-17,Portugal,Bosnia and Herzegovina,Portugal,Bruno Fernandes,77,FALSE,FALSE
 2023-06-17,Portugal,Bosnia and Herzegovina,Portugal,Bruno Fernandes,90,FALSE,FALSE
 2023-06-18,Netherlands,Italy,Italy,Federico Dimarco,6,FALSE,FALSE
-2023-06-18,Netherlands,Italy,Italy,Federico Dimarco,6,FALSE,FALSE
-2023-06-18,Netherlands,Italy,Italy,Davide Frattesi,20,FALSE,FALSE
 2023-06-18,Netherlands,Italy,Italy,Davide Frattesi,20,FALSE,FALSE
 2023-06-18,Netherlands,Italy,Netherlands,Steven Bergwijn,68,FALSE,FALSE
-2023-06-18,Netherlands,Italy,Netherlands,Steven Bergwijn,68,FALSE,FALSE
 2023-06-18,Netherlands,Italy,Italy,Federico Chiesa,72,FALSE,FALSE
-2023-06-18,Netherlands,Italy,Italy,Federico Chiesa,72,FALSE,FALSE
-2023-06-18,Netherlands,Italy,Netherlands,Georginio Wijnaldum,89,FALSE,FALSE
 2023-06-18,Netherlands,Italy,Netherlands,Georginio Wijnaldum,89,FALSE,FALSE
 2023-06-19,Armenia,Latvia,Armenia,Nair Tiknizyan,35,FALSE,FALSE
 2023-06-19,Armenia,Latvia,Latvia,Styopa Mkrtchyan,67,TRUE,FALSE
@@ -44109,3 +44089,275 @@ date,home_team,away_team,team,scorer,minute,own_goal,penalty
 2024-02-11,Ivory Coast,Nigeria,Nigeria,William Troost-Ekong,38,FALSE,FALSE
 2024-02-11,Ivory Coast,Nigeria,Ivory Coast,Franck Kessié,62,FALSE,FALSE
 2024-02-11,Ivory Coast,Nigeria,Ivory Coast,Sébastien Haller,81,FALSE,FALSE
+2024-03-21,Bosnia and Herzegovina,Ukraine,Bosnia and Herzegovina,Mykola Matviyenko,56,TRUE,FALSE
+2024-03-21,Bosnia and Herzegovina,Ukraine,Ukraine,Roman Yaremchuk,85,FALSE,FALSE
+2024-03-21,Bosnia and Herzegovina,Ukraine,Ukraine,Artem Dovbyk,88,FALSE,FALSE
+2024-03-21,Georgia,Luxembourg,Georgia,Budu Zivzivadze,40,FALSE,FALSE
+2024-03-21,Georgia,Luxembourg,Georgia,Budu Zivzivadze,63,FALSE,FALSE
+2024-03-21,Greece,Kazakhstan,Greece,Anastasios Bakasetas,9,FALSE,TRUE
+2024-03-21,Greece,Kazakhstan,Greece,Dimitrios Pelkas,15,FALSE,FALSE
+2024-03-21,Greece,Kazakhstan,Greece,Fotis Ioannidis,37,FALSE,FALSE
+2024-03-21,Greece,Kazakhstan,Greece,Dimitrios Kourbelis,40,FALSE,FALSE
+2024-03-21,Greece,Kazakhstan,Greece,Yerkin Tapalov,85,TRUE,FALSE
+2024-03-21,Israel,Iceland,Israel,Eran Zahavi,31,FALSE,TRUE
+2024-03-21,Israel,Iceland,Iceland,Albert Guðmundsson,39,FALSE,FALSE
+2024-03-21,Israel,Iceland,Iceland,Arnór Ingvi Traustason,42,FALSE,FALSE
+2024-03-21,Israel,Iceland,Iceland,Albert Guðmundsson,83,FALSE,FALSE
+2024-03-21,Israel,Iceland,Iceland,Albert Guðmundsson,87,FALSE,FALSE
+2024-03-21,Poland,Estonia,Poland,Przemysław Frankowski,22,FALSE,FALSE
+2024-03-21,Poland,Estonia,Poland,Piotr Zieliński,50,FALSE,FALSE
+2024-03-21,Poland,Estonia,Poland,Jakub Piotrowski,70,FALSE,FALSE
+2024-03-21,Poland,Estonia,Poland,Karol Mets,74,TRUE,FALSE
+2024-03-21,Poland,Estonia,Poland,Sebastian Szymański,76,FALSE,FALSE
+2024-03-21,Poland,Estonia,Estonia,Martin Vetkal,78,FALSE,FALSE
+2024-03-21,Wales,Finland,Wales,David Brooks,3,FALSE,FALSE
+2024-03-21,Wales,Finland,Wales,Neco Williams,38,FALSE,FALSE
+2024-03-21,Wales,Finland,Finland,Teemu Pukki,45,FALSE,FALSE
+2024-03-21,Wales,Finland,Wales,Brennan Johnson,47,FALSE,FALSE
+2024-03-21,Wales,Finland,Wales,Daniel James,86,FALSE,FALSE
+2024-03-26,Ukraine,Iceland,Iceland,Albert Guðmundsson,30,FALSE,FALSE
+2024-03-26,Ukraine,Iceland,Ukraine,Viktor Tsyhankov,54,FALSE,FALSE
+2024-03-26,Ukraine,Iceland,Ukraine,Mykhailo Mudryk,84,FALSE,FALSE
+2024-06-08,Estonia,Faroe Islands,Faroe Islands,Petur Knudsen,24,FALSE,FALSE
+2024-06-08,Estonia,Faroe Islands,Estonia,Alex Matthias Tamm,43,FALSE,FALSE
+2024-06-08,Estonia,Faroe Islands,Estonia,Henri Anier,50,FALSE,FALSE
+2024-06-08,Estonia,Faroe Islands,Estonia,Edgar Tur,83,FALSE,FALSE
+2024-06-08,Estonia,Faroe Islands,Estonia,Danil Kuraksin,89,FALSE,FALSE
+2024-06-08,Latvia,Lithuania,Lithuania,Armandas Kučys,49,FALSE,FALSE
+2024-06-08,Latvia,Lithuania,Lithuania,Armandas Kučys,72,FALSE,FALSE
+2024-06-11,Latvia,Faroe Islands,Latvia,Andrejs Cigaņiks,49,FALSE,FALSE
+2024-06-11,Lithuania,Estonia,Estonia,Mark Anders Lepik,82,FALSE,FALSE
+2024-06-11,Lithuania,Estonia,Lithuania,Giedrius Matulevicius,84,FALSE,FALSE
+2024-06-14,Germany,Scotland,Germany,Florian Wirtz,10,FALSE,FALSE
+2024-06-14,Germany,Scotland,Germany,Jamal Musiala,19,FALSE,FALSE
+2024-06-14,Germany,Scotland,Germany,Kai Havertz,45,FALSE,TRUE
+2024-06-14,Germany,Scotland,Germany,Niclas Füllkrug,68,FALSE,FALSE
+2024-06-14,Germany,Scotland,Scotland,Antonio Rüdiger,87,TRUE,FALSE
+2024-06-14,Germany,Scotland,Germany,Emre Can,90,FALSE,FALSE
+2024-06-15,Hungary,Switzerland,Switzerland,Kwadwo Duah,12,FALSE,FALSE
+2024-06-15,Hungary,Switzerland,Switzerland,Michel Aebischer,45,FALSE,FALSE
+2024-06-15,Hungary,Switzerland,Hungary,Barnabás Varga,66,FALSE,FALSE
+2024-06-15,Hungary,Switzerland,Switzerland,Breel Embolo,90,FALSE,FALSE
+2024-06-15,Italy,Albania,Albania,Nedim Bajrami,1,FALSE,FALSE
+2024-06-15,Italy,Albania,Italy,Alessandro Bastoni,11,FALSE,FALSE
+2024-06-15,Italy,Albania,Italy,Nicolò Barella,16,FALSE,FALSE
+2024-06-15,Spain,Croatia,Spain,Álvaro Morata,29,FALSE,FALSE
+2024-06-15,Spain,Croatia,Spain,Fabián Ruiz,32,FALSE,FALSE
+2024-06-15,Spain,Croatia,Spain,Dani Carvajal,45,FALSE,FALSE
+2024-06-15,Vanuatu,Solomon Islands,Vanuatu,Kensi Tangis,72,FALSE,FALSE
+2024-06-16,Fiji,Papua New Guinea,Fiji,Nabil Begg,2,FALSE,FALSE
+2024-06-16,Fiji,Papua New Guinea,Fiji,Thomas Dunn,43,FALSE,FALSE
+2024-06-16,Fiji,Papua New Guinea,Fiji,Thomas Dunn,52,FALSE,FALSE
+2024-06-16,Fiji,Papua New Guinea,Fiji,Alwin Komolong,55,TRUE,FALSE
+2024-06-16,Fiji,Papua New Guinea,Fiji,Roy Krishna,64,FALSE,FALSE
+2024-06-16,Fiji,Papua New Guinea,Papua New Guinea,Tommy Semmy,88,FALSE,FALSE
+2024-06-16,Poland,Netherlands,Poland,Adam Buksa,16,FALSE,FALSE
+2024-06-16,Poland,Netherlands,Netherlands,Cody Gakpo,29,FALSE,FALSE
+2024-06-16,Poland,Netherlands,Netherlands,Wout Weghorst,83,FALSE,FALSE
+2024-06-16,Serbia,England,England,Jude Bellingham,13,FALSE,FALSE
+2024-06-16,Slovenia,Denmark,Denmark,Christian Eriksen,17,FALSE,FALSE
+2024-06-16,Slovenia,Denmark,Slovenia,Erik Janža,77,FALSE,FALSE
+2024-06-16,Tahiti,Samoa,Tahiti,Matéo Degrumelle,4,FALSE,FALSE
+2024-06-16,Tahiti,Samoa,Tahiti,Teaonui Tehau,28,FALSE,FALSE
+2024-06-17,Austria,France,France,Maximilian Wöber,38,TRUE,FALSE
+2024-06-17,Belgium,Slovakia,Slovakia,Ivan Schranz,7,FALSE,FALSE
+2024-06-17,Romania,Ukraine,Romania,Nicolae Stanciu,29,FALSE,FALSE
+2024-06-17,Romania,Ukraine,Romania,Răzvan Marin,53,FALSE,FALSE
+2024-06-17,Romania,Ukraine,Romania,Denis Drăguș,57,FALSE,FALSE
+2024-06-18,New Zealand,Solomon Islands,New Zealand,Ben Waine,6,FALSE,FALSE
+2024-06-18,New Zealand,Solomon Islands,New Zealand,Ben Waine,11,FALSE,FALSE
+2024-06-18,New Zealand,Solomon Islands,New Zealand,Kosta Barbarouses,45,FALSE,FALSE
+2024-06-18,Portugal,Czech Republic,Czech Republic,Lukáš Provod,62,FALSE,FALSE
+2024-06-18,Portugal,Czech Republic,Portugal,Robin Hranáč,69,TRUE,FALSE
+2024-06-18,Portugal,Czech Republic,Portugal,Francisco Conceição,90,FALSE,FALSE
+2024-06-18,Turkey,Georgia,Turkey,Mert Müldür,25,FALSE,FALSE
+2024-06-18,Turkey,Georgia,Georgia,Georges Mikautadze,32,FALSE,FALSE
+2024-06-18,Turkey,Georgia,Turkey,Arda Güler,65,FALSE,FALSE
+2024-06-18,Turkey,Georgia,Turkey,Kerem Aktürkoğlu,90,FALSE,FALSE
+2024-06-19,Croatia,Albania,Albania,Qazim Laçi,11,FALSE,FALSE
+2024-06-19,Croatia,Albania,Croatia,Andrej Kramarić,74,FALSE,FALSE
+2024-06-19,Croatia,Albania,Croatia,Klaus Gjasula,76,TRUE,FALSE
+2024-06-19,Croatia,Albania,Albania,Klaus Gjasula,90,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Setareki Hughes,3,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Thomas Dunn,38,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Roy Krishna,45,FALSE,TRUE
+2024-06-19,Fiji,Samoa,Samoa,Luke Salisbury,47,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Roy Krishna,53,FALSE,TRUE
+2024-06-19,Fiji,Samoa,Fiji,Setareki Hughes,61,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Filipe Baravilala,64,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Nabil Begg,67,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Etonia Dogalau,83,FALSE,FALSE
+2024-06-19,Fiji,Samoa,Fiji,Etonia Dogalau,89,FALSE,FALSE
+2024-06-19,Germany,Hungary,Germany,Jamal Musiala,22,FALSE,FALSE
+2024-06-19,Germany,Hungary,Germany,İlkay Gündoğan,67,FALSE,FALSE
+2024-06-19,Papua New Guinea,Tahiti,Tahiti,Matéo Degrumelle,15,FALSE,FALSE
+2024-06-19,Papua New Guinea,Tahiti,Papua New Guinea,Pala Paul,25,FALSE,FALSE
+2024-06-19,Scotland,Switzerland,Scotland,Scott McTominay,13,FALSE,FALSE
+2024-06-19,Scotland,Switzerland,Switzerland,Xherdan Shaqiri,26,FALSE,FALSE
+2024-06-20,Argentina,Canada,Argentina,Julián Álvarez,49,FALSE,FALSE
+2024-06-20,Argentina,Canada,Argentina,Lautaro Martínez,88,FALSE,FALSE
+2024-06-20,Denmark,England,England,Harry Kane,18,FALSE,FALSE
+2024-06-20,Denmark,England,Denmark,Morten Hjulmand,34,FALSE,FALSE
+2024-06-20,Slovenia,Serbia,Slovenia,Žan Karničnik,69,FALSE,FALSE
+2024-06-20,Slovenia,Serbia,Serbia,Luka Jović,90,FALSE,FALSE
+2024-06-20,Spain,Italy,Spain,Riccardo Calafiori,55,TRUE,FALSE
+2024-06-21,Poland,Austria,Austria,Gernot Trauner,9,FALSE,FALSE
+2024-06-21,Poland,Austria,Poland,Krzysztof Piątek,30,FALSE,FALSE
+2024-06-21,Poland,Austria,Austria,Christoph Baumgartner,66,FALSE,FALSE
+2024-06-21,Poland,Austria,Austria,Marko Arnautović,78,FALSE,TRUE
+2024-06-21,Slovakia,Ukraine,Slovakia,Ivan Schranz,17,FALSE,FALSE
+2024-06-21,Slovakia,Ukraine,Ukraine,Mykola Shaparenko,54,FALSE,FALSE
+2024-06-21,Slovakia,Ukraine,Ukraine,Roman Yaremchuk,80,FALSE,FALSE
+2024-06-21,Vanuatu,New Zealand,New Zealand,Max Mata,10,FALSE,FALSE
+2024-06-21,Vanuatu,New Zealand,New Zealand,Brian Kaltak,27,TRUE,FALSE
+2024-06-21,Vanuatu,New Zealand,New Zealand,Elijah Just,63,FALSE,FALSE
+2024-06-21,Vanuatu,New Zealand,New Zealand,Ben Old,78,FALSE,FALSE
+2024-06-22,Belgium,Romania,Belgium,Youri Tielemans,2,FALSE,FALSE
+2024-06-22,Belgium,Romania,Belgium,Kevin De Bruyne,80,FALSE,FALSE
+2024-06-22,Ecuador,Venezuela,Ecuador,Jeremy Sarmiento,40,FALSE,FALSE
+2024-06-22,Ecuador,Venezuela,Venezuela,Jhonder Cádiz,64,FALSE,FALSE
+2024-06-22,Ecuador,Venezuela,Venezuela,Eduard Bello,74,FALSE,FALSE
+2024-06-22,Fiji,Tahiti,Fiji,Roy Krishna,26,FALSE,TRUE
+2024-06-22,Georgia,Czech Republic,Georgia,Georges Mikautadze,45,FALSE,TRUE
+2024-06-22,Georgia,Czech Republic,Czech Republic,Patrik Schick,59,FALSE,FALSE
+2024-06-22,Mexico,Jamaica,Mexico,Gerardo Arteaga,69,FALSE,FALSE
+2024-06-22,Samoa,Papua New Guinea,Papua New Guinea,Tommy Semmy,26,FALSE,FALSE
+2024-06-22,Samoa,Papua New Guinea,Papua New Guinea,Ati Kepo,47,FALSE,FALSE
+2024-06-22,Samoa,Papua New Guinea,Samoa,Pharrell Trainor,67,FALSE,FALSE
+2024-06-22,Turkey,Portugal,Portugal,Bernardo Silva,21,FALSE,FALSE
+2024-06-22,Turkey,Portugal,Portugal,Samet Akaydin,28,TRUE,FALSE
+2024-06-22,Turkey,Portugal,Portugal,Bruno Fernandes,56,FALSE,FALSE
+2024-06-23,Germany,Switzerland,Switzerland,Dan Ndoye,28,FALSE,FALSE
+2024-06-23,Germany,Switzerland,Germany,Niclas Füllkrug,90,FALSE,FALSE
+2024-06-23,Scotland,Hungary,Hungary,Kevin Csoboth,90,FALSE,FALSE
+2024-06-23,United States,Bolivia,United States,Christian Pulisic,3,FALSE,FALSE
+2024-06-23,United States,Bolivia,United States,Folarin Balogun,44,FALSE,FALSE
+2024-06-23,Uruguay,Panama,Uruguay,Maximiliano Araújo,16,FALSE,FALSE
+2024-06-23,Uruguay,Panama,Uruguay,Darwin Núñez,85,FALSE,FALSE
+2024-06-23,Uruguay,Panama,Uruguay,Matías Viña,90,FALSE,FALSE
+2024-06-23,Uruguay,Panama,Panama,Michael Amir Murillo,90,FALSE,FALSE
+2024-06-24,Albania,Spain,Spain,Ferran Torres,13,FALSE,FALSE
+2024-06-24,Colombia,Paraguay,Colombia,Daniel Muñoz,32,FALSE,FALSE
+2024-06-24,Colombia,Paraguay,Colombia,Jefferson Lerma,42,FALSE,FALSE
+2024-06-24,Colombia,Paraguay,Paraguay,Julio Enciso,69,FALSE,FALSE
+2024-06-24,Croatia,Italy,Croatia,Luka Modrić,55,FALSE,FALSE
+2024-06-24,Croatia,Italy,Italy,Mattia Zaccagni,90,FALSE,FALSE
+2024-06-25,Chile,Argentina,Argentina,Lautaro Martínez,88,FALSE,FALSE
+2024-06-25,France,Poland,France,Kylian Mbappé,56,FALSE,TRUE
+2024-06-25,France,Poland,Poland,Robert Lewandowski,79,FALSE,TRUE
+2024-06-25,Netherlands,Austria,Austria,Donyell Malen,6,TRUE,FALSE
+2024-06-25,Netherlands,Austria,Netherlands,Cody Gakpo,47,FALSE,FALSE
+2024-06-25,Netherlands,Austria,Austria,Romano Schmid,59,FALSE,FALSE
+2024-06-25,Netherlands,Austria,Netherlands,Memphis Depay,75,FALSE,FALSE
+2024-06-25,Netherlands,Austria,Austria,Marcel Sabitzer,80,FALSE,FALSE
+2024-06-25,Peru,Canada,Canada,Jonathan David,74,FALSE,FALSE
+2024-06-26,Czech Republic,Turkey,Turkey,Hakan Çalhanoğlu,51,FALSE,FALSE
+2024-06-26,Czech Republic,Turkey,Czech Republic,Tomáš Souček,66,FALSE,FALSE
+2024-06-26,Czech Republic,Turkey,Turkey,Cenk Tosun,90,FALSE,FALSE
+2024-06-26,Ecuador,Jamaica,Ecuador,Kasey Palmer,13,TRUE,FALSE
+2024-06-26,Ecuador,Jamaica,Ecuador,Kendry Páez,45,FALSE,TRUE
+2024-06-26,Ecuador,Jamaica,Jamaica,Michail Antonio,54,FALSE,FALSE
+2024-06-26,Ecuador,Jamaica,Ecuador,Alan Minda,90,FALSE,FALSE
+2024-06-26,Georgia,Portugal,Georgia,Khvicha Kvaratskhelia,2,FALSE,FALSE
+2024-06-26,Georgia,Portugal,Georgia,Georges Mikautadze,57,FALSE,TRUE
+2024-06-26,Slovakia,Romania,Slovakia,Ondrej Duda,24,FALSE,FALSE
+2024-06-26,Slovakia,Romania,Romania,Răzvan Marin,37,FALSE,TRUE
+2024-06-26,Venezuela,Mexico,Venezuela,Salomón Rondón,57,FALSE,TRUE
+2024-06-27,New Zealand,Tahiti,New Zealand,Finn Surman,7,FALSE,FALSE
+2024-06-27,New Zealand,Tahiti,New Zealand,Ben Waine,45,FALSE,FALSE
+2024-06-27,New Zealand,Tahiti,New Zealand,Kosta Barbarouses,45,FALSE,FALSE
+2024-06-27,New Zealand,Tahiti,New Zealand,Ben Waine,53,FALSE,FALSE
+2024-06-27,New Zealand,Tahiti,New Zealand,Kosta Barbarouses,72,FALSE,FALSE
+2024-06-27,United States,Panama,United States,Folarin Balogun,22,FALSE,FALSE
+2024-06-27,United States,Panama,Panama,César Blackman,26,FALSE,FALSE
+2024-06-27,United States,Panama,Panama,José Fajardo,83,FALSE,FALSE
+2024-06-27,Uruguay,Bolivia,Uruguay,Facundo Pellistri,8,FALSE,FALSE
+2024-06-27,Uruguay,Bolivia,Uruguay,Darwin Núñez,21,FALSE,FALSE
+2024-06-27,Uruguay,Bolivia,Uruguay,Maximiliano Araújo,77,FALSE,FALSE
+2024-06-27,Uruguay,Bolivia,Uruguay,Federico Valverde,81,FALSE,FALSE
+2024-06-27,Uruguay,Bolivia,Uruguay,Rodrigo Bentancur,89,FALSE,FALSE
+2024-06-27,Vanuatu,Fiji,Vanuatu,Johnathan Spokeyjack,12,FALSE,FALSE
+2024-06-27,Vanuatu,Fiji,Fiji,Sitiveni Cavuilagi,46,FALSE,FALSE
+2024-06-27,Vanuatu,Fiji,Vanuatu,Jason Thomas,56,FALSE,FALSE
+2024-06-28,Colombia,Costa Rica,Colombia,Luis Díaz,31,FALSE,TRUE
+2024-06-28,Colombia,Costa Rica,Colombia,Davinson Sánchez,59,FALSE,FALSE
+2024-06-28,Colombia,Costa Rica,Colombia,Jhon Córdoba,62,FALSE,FALSE
+2024-06-28,Paraguay,Brazil,Brazil,Vinícius Júnior,35,FALSE,FALSE
+2024-06-28,Paraguay,Brazil,Brazil,Sávio,43,FALSE,FALSE
+2024-06-28,Paraguay,Brazil,Brazil,Vinícius Júnior,45,FALSE,FALSE
+2024-06-28,Paraguay,Brazil,Paraguay,Omar Alderete,48,FALSE,FALSE
+2024-06-28,Paraguay,Brazil,Brazil,Lucas Paquetá,65,FALSE,TRUE
+2024-06-29,Argentina,Peru,Argentina,Lautaro Martínez,47,FALSE,FALSE
+2024-06-29,Argentina,Peru,Argentina,Lautaro Martínez,86,FALSE,FALSE
+2024-06-29,Germany,Denmark,Germany,Kai Havertz,53,FALSE,TRUE
+2024-06-29,Germany,Denmark,Germany,Jamal Musiala,68,FALSE,FALSE
+2024-06-29,Switzerland,Italy,Switzerland,Remo Freuler,37,FALSE,FALSE
+2024-06-29,Switzerland,Italy,Switzerland,Ruben Vargas,46,FALSE,FALSE
+2024-06-30,England,Slovakia,Slovakia,Ivan Schranz,25,FALSE,FALSE
+2024-06-30,England,Slovakia,England,Jude Bellingham,90,FALSE,FALSE
+2024-06-30,England,Slovakia,England,Harry Kane,91,FALSE,FALSE
+2024-06-30,Jamaica,Venezuela,Venezuela,Eduard Bello,49,FALSE,FALSE
+2024-06-30,Jamaica,Venezuela,Venezuela,Salomón Rondón,56,FALSE,FALSE
+2024-06-30,Jamaica,Venezuela,Venezuela,Eric Ramírez,85,FALSE,FALSE
+2024-06-30,Spain,Georgia,Georgia,Robin Le Normand,18,TRUE,FALSE
+2024-06-30,Spain,Georgia,Spain,Rodri,39,FALSE,FALSE
+2024-06-30,Spain,Georgia,Spain,Fabián Ruiz,51,FALSE,FALSE
+2024-06-30,Spain,Georgia,Spain,Nico Williams,75,FALSE,FALSE
+2024-06-30,Spain,Georgia,Spain,Dani Olmo,83,FALSE,FALSE
+2024-06-30,Tahiti,Fiji,Fiji,Roy Krishna,58,FALSE,FALSE
+2024-06-30,Tahiti,Fiji,Tahiti,Teaonui Tehau,72,FALSE,FALSE
+2024-06-30,Tahiti,Fiji,Tahiti,Teaonui Tehau,83,FALSE,FALSE
+2024-06-30,Vanuatu,New Zealand,New Zealand,Cameron Howieson,2,FALSE,FALSE
+2024-06-30,Vanuatu,New Zealand,New Zealand,Jesse Randall,83,FALSE,FALSE
+2024-06-30,Vanuatu,New Zealand,New Zealand,Max Mata,90,FALSE,FALSE
+2024-07-01,Bolivia,Panama,Panama,José Fajardo,22,FALSE,FALSE
+2024-07-01,Bolivia,Panama,Bolivia,Bruno Miranda,69,FALSE,FALSE
+2024-07-01,Bolivia,Panama,Panama,Eduardo Guerrero,79,FALSE,FALSE
+2024-07-01,Bolivia,Panama,Panama,César Yanis,90,FALSE,FALSE
+2024-07-01,France,Belgium,France,Jan Vertonghen,85,TRUE,FALSE
+2024-07-01,United States,Uruguay,Uruguay,Mathías Olivera,66,FALSE,FALSE
+2024-07-02,Austria,Turkey,Turkey,Merih Demiral,1,FALSE,FALSE
+2024-07-02,Austria,Turkey,Turkey,Merih Demiral,59,FALSE,FALSE
+2024-07-02,Austria,Turkey,Austria,Michael Gregoritsch,66,FALSE,FALSE
+2024-07-02,Brazil,Colombia,Brazil,Raphinha,12,FALSE,FALSE
+2024-07-02,Brazil,Colombia,Colombia,Daniel Muñoz,45,FALSE,FALSE
+2024-07-02,Costa Rica,Paraguay,Costa Rica,Francisco Calvo,3,FALSE,FALSE
+2024-07-02,Costa Rica,Paraguay,Costa Rica,Josimar Alcócer,7,FALSE,FALSE
+2024-07-02,Costa Rica,Paraguay,Paraguay,Ramón Sosa,55,FALSE,FALSE
+2024-07-02,Romania,Netherlands,Netherlands,Cody Gakpo,20,FALSE,FALSE
+2024-07-02,Romania,Netherlands,Netherlands,Donyell Malen,83,FALSE,FALSE
+2024-07-02,Romania,Netherlands,Netherlands,Donyell Malen,90,FALSE,FALSE
+2024-07-04,Argentina,Ecuador,Argentina,Lisandro Martínez,35,FALSE,FALSE
+2024-07-04,Argentina,Ecuador,Ecuador,Kevin Rodríguez,90,FALSE,FALSE
+2024-07-05,Germany,Spain,Spain,Dani Olmo,51,FALSE,FALSE
+2024-07-05,Germany,Spain,Germany,Florian Wirtz,89,FALSE,FALSE
+2024-07-05,Germany,Spain,Spain,Mikel Merino,119,FALSE,FALSE
+2024-07-05,Venezuela,Canada,Canada,Jacob Shaffelburg,13,FALSE,FALSE
+2024-07-05,Venezuela,Canada,Venezuela,Salomón Rondón,65,FALSE,FALSE
+2024-07-06,Colombia,Panama,Colombia,Jhon Córdoba,8,FALSE,FALSE
+2024-07-06,Colombia,Panama,Colombia,James Rodríguez,15,FALSE,TRUE
+2024-07-06,Colombia,Panama,Colombia,Luis Díaz,41,FALSE,FALSE
+2024-07-06,Colombia,Panama,Colombia,Richard Ríos,70,FALSE,FALSE
+2024-07-06,Colombia,Panama,Colombia,Miguel Borja,90,FALSE,TRUE
+2024-07-06,England,Switzerland,Switzerland,Breel Embolo,75,FALSE,FALSE
+2024-07-06,England,Switzerland,England,Bukayo Saka,80,FALSE,FALSE
+2024-07-06,Netherlands,Turkey,Turkey,Samet Akaydin,35,FALSE,FALSE
+2024-07-06,Netherlands,Turkey,Netherlands,Stefan de Vrij,70,FALSE,FALSE
+2024-07-06,Netherlands,Turkey,Netherlands,Mert Müldür,76,TRUE,FALSE
+2024-07-09,Argentina,Canada,Argentina,Julián Álvarez,22,FALSE,FALSE
+2024-07-09,Argentina,Canada,Argentina,Lionel Messi,51,FALSE,FALSE
+2024-07-09,Spain,France,France,Randal Kolo Muani,9,FALSE,FALSE
+2024-07-09,Spain,France,Spain,Lamine Yamal,21,FALSE,FALSE
+2024-07-09,Spain,France,Spain,Dani Olmo,25,FALSE,FALSE
+2024-07-10,Netherlands,England,Netherlands,Xavi Simons,7,FALSE,FALSE
+2024-07-10,Netherlands,England,England,Harry Kane,18,FALSE,TRUE
+2024-07-10,Netherlands,England,England,Ollie Watkins,90,FALSE,FALSE
+2024-07-10,Uruguay,Colombia,Colombia,Jefferson Lerma,39,FALSE,FALSE
+2024-07-13,Canada,Uruguay,Uruguay,Rodrigo Bentancur,8,FALSE,FALSE
+2024-07-13,Canada,Uruguay,Canada,Ismaël Koné,22,FALSE,FALSE
+2024-07-13,Canada,Uruguay,Canada,Jonathan David,80,FALSE,FALSE
+2024-07-13,Canada,Uruguay,Uruguay,Luis Suárez,90,FALSE,FALSE
+2024-07-14,Argentina,Colombia,Argentina,Lautaro Martínez,112,FALSE,FALSE
+2024-07-14,Spain,England,Spain,Nico Williams,47,FALSE,FALSE
+2024-07-14,Spain,England,England,Cole Palmer,73,FALSE,FALSE
+2024-07-14,Spain,England,Spain,Mikel Oyarzabal,86,FALSE,FALSE
