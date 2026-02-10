@@ -126,16 +126,15 @@ with tab1:
         fig_trophies, fig_pie_chart = trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle)
         with col1_1.container():
             st.markdown("##### Most Decorated Countries - " + selected_tournament)
-            st.plotly_chart(fig_trophies, use_container_width=True)
+            st.plotly_chart(fig_trophies, width='stretch')
 
         with col1_2.container():
             st.markdown("##### Trophies Won as :blue[Host] vs Trophies Won as :violet[Neutral]")
-            st.plotly_chart(fig_pie_chart, use_container_width=True)
+            st.plotly_chart(fig_pie_chart, width='stretch')
     else:
         # with col1_1.container():
         st.markdown("##### Most Decorated Champions - " + selected_tournament)
-        st.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), use_container_width=True)
-
+        st.plotly_chart(trophy_count_hbarchart(selected_tournament, rs, start_year, end_year, toggle), width='stretch')
 
     # visual divider between sections
     st.divider() #-----------------------------------------------------------------------------------------------------------------------------
@@ -195,13 +194,13 @@ with tab1:
     with col3_1.container():
         st.markdown("##### Most Appearances in " + selected_tournament + " Finals")
         st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Final Appearances"),
-                     use_container_width=True,
+                     width='stretch',
                      hide_index=True)
 
     with col3_2.container():
         st.markdown("##### Most Appearances in " + selected_tournament)
         st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Tournament Appearances"),
-                     use_container_width=True,
+                     width='stretch',
                      hide_index=True)
 
 
@@ -218,12 +217,12 @@ with tab2:
 
     with col1_1.container():
         st.markdown("##### Goals Scored per Tournament")
-        st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), use_container_width=True)
+        st.plotly_chart(goals_count_line_plot(selected_tournament, rs, start_year, end_year), width='stretch')
 
     
     with col1_2.container():
         st.markdown("##### Goals Scored per Minute")
-        st.plotly_chart(goal_min_hist(selected_tournament, gs, start_year, end_year), use_container_width=True)
+        st.plotly_chart(goal_min_hist(selected_tournament, gs, start_year, end_year), width='stretch')
     
 
     # visual divider between sections
@@ -237,7 +236,7 @@ with tab2:
 
     # Teams who have scored the most goals of all time (table)
     st.dataframe(tour_stats(selected_tournament, rs, gs, start_year, end_year, "Teams with Most Goals Scored"),
-                    use_container_width=True,
+                    width='stretch',
                     hide_index=True)
 
 
@@ -256,14 +255,14 @@ with tab2:
         # Top goalscorers of all time
         st.markdown("##### Top Goalscorers of All-time - " + selected_tournament)
         st.dataframe(tour_stats(selected_tournament, None, gs, start_year, end_year, "Top Goalscorers All-time"),
-                     use_container_width=True,
+                     width='stretch',
                      hide_index=True)
 
     with col2_2.container():
         # Top goalscorers of the latest tournament
         st.markdown("##### Top Goalscorers of " + selected_tournament + " " + str(tour_stats(selected_tournament, rs, None, start_year, end_year, "tour_year")))
         st.dataframe(tour_stats(selected_tournament, None, gs, start_year, end_year, "Top Goalscorers Latest Tournament"),
-                     use_container_width=True,
+                     width='stretch',
                      hide_index=True)
 
 
@@ -280,13 +279,13 @@ with tab3:
         # Pie chart to show the difference in success rates of taking the first penalty vs the second penalty in a shootout
         st.markdown("##### Penalty success rates when:")
         st.markdown(":orange[_Under maintenance_]")
-        # st.plotly_chart(pen_pie_chart(selected_tournament, gs, start_year, end_year), use_container_width=True)
+        # st.plotly_chart(pen_pie_chart(selected_tournament, gs, start_year, end_year), width='stretch')
 
     with col1_2.container():
         # Teams who have played in most penalty shootouts and their respective success rates
         st.markdown("##### Most Penalty Shootouts")
         st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Pen Shootout Stats"),
-                    use_container_width=True,
+                    width='stretch',
                     hide_index=True)
 
 
