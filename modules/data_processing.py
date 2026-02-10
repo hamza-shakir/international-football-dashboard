@@ -67,9 +67,9 @@ def results_data(results_df, shootouts_df):
     # rs['Winning Team'].fillna('Draw', inplace = True)
     # rs['Shootout'].fillna(False, inplace = True)
     # rs['Losing Team'].fillna('Draw', inplace = True)
-    rs['Winning Team'] = rs['Winning Team'].fillna('Draw')
-    rs['Shootout'] = rs['Shootout'].fillna(False)
-    rs['Losing Team'] = rs['Losing Team'].fillna('Draw')
+    rs['Winning Team'] = rs['Winning Team'].fillna('Draw').infer_objects(copy=False)
+    rs['Shootout'] = rs['Shootout'].fillna(False).infer_objects(copy=False)
+    rs['Losing Team'] = rs['Losing Team'].fillna('Draw').infer_objects(copy=False)
 
 
     '''
