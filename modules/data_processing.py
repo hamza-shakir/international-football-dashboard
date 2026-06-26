@@ -11,9 +11,9 @@ def results_data(results_df, shootouts_df):
 
     '''
     The 'first_shooter' column contains a lot of incomplete and inconsistent data,
-    hence we wshall drop it to avoid confusion later on in our analysis.
+    hence we shall drop it to avoid confusion later on in our analysis.
     '''
-    shootouts_df = shootouts_df.drop(columns = ['first_shooter'])
+    # shootouts_df = shootouts_df.drop(columns = ['first_shooter'])
 
     '''
     Now let us merge both the dataframes to combine shooutout results. 
@@ -27,7 +27,7 @@ def results_data(results_df, shootouts_df):
     It would be best for us to drop the that row (last row) in the dataframe as it seems 
     to be an outlier and won't have any impact on our analysis.
     '''
-    rs.dropna(subset=['tournament'], inplace=True)
+    # rs.dropna(subset=['tournament'], inplace=True)
 
  
     # Let us rename the columns for consistency

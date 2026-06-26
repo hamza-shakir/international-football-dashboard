@@ -60,7 +60,7 @@ rs = results_data(results_df, shootouts_df)
 gs = goalscorers_data(goalscorers_df, rs)
 
 
-#---------------------------------------dispalying content---------------------------------------------------------
+#---------------------------------------displaying content---------------------------------------------------------
 
 # creating 2 columns for a tournament dropdown list and a slider with a range of years
 fixed_header = st.container()
@@ -277,14 +277,14 @@ with tab3:
 
     with col1_1.container():
         # Pie chart to show the difference in success rates of taking the first penalty vs the second penalty in a shootout
-        st.markdown("##### Penalty success rates when:")
-        st.markdown(":orange[_Under maintenance_]")
-        # st.plotly_chart(pen_pie_chart(selected_tournament, gs, start_year, end_year), width='stretch')
+        st.markdown("##### Penalty Shootout Success Rates when")
+        # st.markdown(":orange[_Under maintenance_]")
+        st.plotly_chart(pen_pie_chart(selected_tournament, rs, start_year, end_year), width='stretch')
 
     with col1_2.container():
         # Teams who have played in most penalty shootouts and their respective success rates
         st.markdown("##### Most Penalty Shootouts")
-        st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Pen Shootout Stats"),
+        st.dataframe(tour_stats(selected_tournament, rs, None, start_year, end_year, "Pen Shootout Stats by Team"),
                     width='stretch',
                     hide_index=True)
 

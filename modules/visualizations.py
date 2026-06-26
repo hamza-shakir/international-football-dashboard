@@ -355,9 +355,15 @@ def pen_pie_chart(tournament_name, gs, start_year, end_year):
 
     # Creating values and labels arrays for pie chart
     values = [first_shooter_wins , second_shooter_wins ]
-    labels = ['Takes 1st penalty', 'Takes second penalty']
+    labels = ['Takes 1st penalty', 'Takes 2nd penalty']
 
-    fig_pen_pie_chart = go.Figure(data=[go.Pie(labels=labels, values=values)])
+    # Specify the index of the slice you want to explode (0 for first, 1 for second)
+    exploded_slice_index = 0
+
+    fig_pen_pie_chart = go.Figure(data=[go.Pie(labels=labels, 
+                                           values=values,
+                                           # Apply pull to the desired slice index
+                                           pull=[0, 0.1] if exploded_slice_index == 0 else [0.1, 0])])
 
     return fig_pen_pie_chart
 
@@ -615,7 +621,7 @@ def tour_stats(tournament_name, rs, gs, start_year, end_year, stat):
     
 
     # Teams who have played in most penalty shootouts and their respective success rates
-    elif stat == "Pen Shootout Stats":
+    elif stat == "Pen Shootout Stats by Team":
         # Filter the DataFrame to include only rows where 'Shootout' is True
         shootout_matches = rs_tournament[rs_tournament['Shootout'] == True]
 
